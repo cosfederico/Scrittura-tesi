@@ -76,7 +76,29 @@ Alcuni dei video individuati inoltre presentavano alcuni elementi grafici a comp
 
 Si identifica un fotogramma dell'immagine dove non vi sono elementi a coprire la parte dello sfondo interessata, e si salva tale fotogramma come file a parte. Questo fotogramma "pulito" è detto \textit{clean plate}. Dal momento che lo sfondo è statico, ovvero non cambia nel tempo, il clean plate funge da copia pulita dell'immagine, che possiamo utilizzare per coprire qualunque elemento che compare in sovrapposizione dello sfondo. Con un qualunque programma di editing, si sovrappone il clean plate alla porzione temporale di video in cui compare l'elemento da rimuovere, ad esempio una scritta. Si effettua poi una maschera, che va a ritagliare il clean plate, in modo che, come una toppa, vada a coprire il testo in sovra-impressione, rimuovendolo dal video.
 
-% INSERIRE FIGURE con descrizione "Una operazione di mascheramento con clean plate in Adobe Premiere Pro"
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.32\textwidth}
+        \includegraphics[width=0.95\linewidth]{images/original_frame} 
+        \caption{Fotogramma originale}
+        \label{fig:original_frame}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.32\textwidth}
+        \includegraphics[width=0.95\linewidth]{images/mask_with_text}
+        \caption{Maschera sovrapposta}
+        \label{fig:mask_with_text}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.32\textwidth}
+        \includegraphics[width=0.95\linewidth]{images/masked}
+        \caption{Fotogramma mascherato}
+        \label{fig:masked}
+    \end{subfigure}
+    
+    \caption{Una operazione di mascheramento con clean plate in Adobe Premiere Pro}
+    \label{fig:masking}
+\end{figure}
 
 \subsubsection{Estrazione del testo}
 
