@@ -2,7 +2,32 @@
 
 \section{Funzionamento}
 
-\section{Soluzioni attualmente disponibili}
+\section{Valutazione delle soluzioni disponibili}
+
+Per la generazione dei video fake, sono stati valutati tre applicativi diversi, forniti come Software-as-a-Service (SaaS):
+\begin{itemize}
+    \item DupDub.com
+    \item Synthesia.io
+    \item HeyGen.com
+\end{itemize}
+
+I criteri che sono stati valutati sono: la naturalezza dei movimenti generati, l'estensione di questi ultimi, la qualità del lip-sync\footnote{sincronizzazione tra il movimento delle labbra di un soggetto e il suono delle parole pronunciate.}, la qualità e la naturalezza della voce parlata generata, e il grado di realismo generale dato dai video generati. Vediamo per ordine i punti di forza e di debolezza identificati di ognuno, e come si è pervenuti alla scelta finale. 
+
+\subsection{DupDub}
+
+DupDub si classifica come un prodotto "Talking-Photo". A partire da una fotografia di un persona, genera il movimento dei muscoli facciali e delle labbra per simulare il parlato. DupDub trova i suoi punti di forza nell'essere molto semplice, ma è stato valutato troppo semplice per gli scopi di questa ricerca. La più grande limitazione è data dalla limitatezza dei movimenti, limitandosi appunto a generare solo movimenti dei muscoli facciali, e a malapena movimenti della testa, rendendo il risultato finale poco convincente e innaturale. Inoltre, tutti gli avatar forniti dalla piattaforma per la generazione dei video sono chiaramente soggetti non reali, bensì generati a loro volta tramite IA.
+
+\subsection{Synthesia.io}
+
+Rispetto al precedente, Synthesia.io si mostra molto più capace. Fornisce avatar in mezzo busto, ed è in grado di generare movimenti del viso, della testa, e anche del corpo, producendo risultati decisamente più naturali di DupDub. Gli avatar forniti sembrano essere stati generati a partire da persone reali, ed il servizio offre la possibilità di generare avatar personali. I punti di debolezza individuati sono stati: la qualità del lip-sync e la qualità delle voci generate. In particolare, risultava frequente il disallineamento tra il movimento delle labbra dell'avatar e il suono della voce generato. La voce inoltre è stata valutata come poco espressiva e poco naturale. Vedremo in realtà come questi sono spesso i punti più deboli di questa tecnologia.
+
+Nonostante questo, tale servizio sembrava un buon candidato per la ricerca, ma è stato scartato in base al piano offerto, in quanto offriva un servizio ad abbonamento basato su minuti. % Vi era un numero limitato di minuti di video generabili al mese, il che avrebbe limitato/rallentato il processo di ricerca.
+
+\subsection{HeyGen}
+
+Sin dal primo sguardo, HeyGen.com si è dimostrato essere al di sopra di tutti gli altri, offrendo anche la possibilità di generare video su sfondi reali, angolazioni diverse dello stesso avatar, e implementando movimenti del corpo avanzati come il movimento delle braccia e il gesticolamento delle mani. La voce è stata identificata come un punto debole, ma non perché di scarsa qualità. Le voci generate hanno un timbro molto pulito, secco e "radiofonico", che però può risultare innaturale se utilizzate in un video a sfondo reale, dove il suono della voce potrebbe non essere conforme all'acustica della stanza rappresentata. Questo problema però non si presenta negli avatar tradizionali, i quali sono privi di sfondo. Inoltre, la piattaforma si è dimostrata essere in constante evoluzione e sviluppo, arricchendo il suo catalogo di funzionalità, avatar e di voci durante il periodo di valutazione.
+
+Per queste ragioni, tra le opzioni valutate HeyGen è stato valutato come il migliore, in termini di qualità e naturalezza dei risultati prodotti, ed è stato quindi scelto come soluzione per la nostra ricerca. Un altro fattore che sicuramente ha giocato a suo favore è stato anche il piano offerto, il quale ci ha permesso di generare infiniti video durante il periodo di abbonamento, posto che questi fossero sotto i cinque minuti di durata.
 
 \section{Video real}
 \subsection{Scelta dei video real}
