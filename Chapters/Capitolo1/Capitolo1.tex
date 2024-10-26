@@ -27,11 +27,63 @@ Nonostante questo, tale servizio sembrava un buon candidato per la ricerca, ma �
 
 Sin dal primo sguardo, HeyGen.com si è dimostrato essere al di sopra di tutti gli altri, offrendo anche la possibilità di generare video su sfondi reali, angolazioni diverse dello stesso avatar, e implementando movimenti del corpo avanzati come il movimento delle braccia e il gesticolamento delle mani. Gli avatar sono costruiti a partire da un video di riferimento del soggetto, il che li conferisce la possibilità di apprendere ed emulare i movimenti della persona inquadrata, producendo un risultato più naturale e realistico. Inoltre, la piattaforma si è dimostrata essere in constante evoluzione e sviluppo, arricchendo il suo catalogo di funzionalità, avatar e di voci durante il periodo di valutazione.
 
-Per queste ragioni, tra le opzioni valutate, HeyGen è stato valutato come il migliore, in termini di qualità e naturalezza dei risultati prodotti, ed è stato quindi scelto come soluzione per la nostra ricerca. Un altro fattore che sicuramente ha giocato a suo favore è stato anche il piano offerto, il quale ci ha permesso di generare infiniti video durante il periodo di abbonamento, posto che questi fossero sotto i cinque minuti di durata.
+Per queste ragioni, tra le opzioni valutate, HeyGen è stato decretato come il migliore, in termini di qualità e naturalezza dei risultati prodotti, ed è stato quindi scelto come soluzione per la nostra ricerca. Un altro fattore che sicuramente ha giocato a suo favore è stato anche il piano offerto, il quale ci ha permesso di generare infiniti video durante il periodo di abbonamento, posto che questi fossero sotto i cinque minuti di durata.
+
+\paragraph{Profilo dei video fake}
+Si delinea così il tipo di video che siamo in grado di generare: gli avatar sono privi di sfondo, per cui i video fake sono video con sfondo bianco, statici, privi di movimenti di macchina o cambi di inquadrature, e sono privi di animazioni o scritte che compaiono a corredo.
 
 \section{Video real}
+
+Identificata la piattaforma per la generazione dei video fake, è necessario procurarsi i video reali da utilizzare come riferimento per generare tali doppioni fake. Il tipo di video richiesto per i video real sono dei video brevi (durata inferiore ai 5 minuti), in modo che possano essere visti per intero. Fondamentale è trovare dei contenuti che non richiedano una particolare formazione pregressa per la loro comprensione, ma che non siano neanche banali, in modo di poter fare delle domande di comprensione a loro volta non banali. 
+
 \subsection{Scelta dei video real}
-\subsection{Pre-Processing}
+
+\paragraph{Criterio di scelta}
+È stata utilizzata per la ricerca dei video la piattaforma YouTube, e il criterio di ricerca dei video reali è semplice: cercare i video più simili possibili ai video fake che siamo in grado di generare. Per tali ragioni, il criterio di scelta consiste in:
+\begin{itemize}
+    \item video frontali, con un soggetto al centro e sfondo bianco
+    \item nessun movimento di macchina o cambi di inquadrature
+    \item autodescrittivo, in altre parole video dove non vengono utilizzate immagini, slide o grafici di supporto che vengono esplicitamente referenziati dallo speaker\footnote{questo perché contenuti esplicitamente referenziati dallo speaker reale non sarebbero presenti nel corrispettivo video fake, rompendo l'illusione.}
+    \item video con il minor numero di scritte o immagini che compaiono a corredo, preferibilmente nessuna
+    \item video con i sottotitoli preferibilmente inseriti a mano dall'autore del video, in modo da poter scaricare il copione associato al video più facilmente
+\end{itemize}
+
+\paragraph{Video trovati}
+
+Per la realizzazione di un pilot della ricerca, sono stati identificati quattro video che soddisfano i criteri stabiliti:
+\begin{itemize}
+    \item \textit{"How to make a GREAT impression - Presentation Tips"} di Expert Academy %(https://youtu.be/lZg6H0WqPVY)
+    \item \textit{"How to start a pitch or presentation"} di Dominic Colenso %(https://youtu.be/P2LwuF7zn9c)
+    \item \textit{"How to start a presentation"} di Expert Academy %(https://youtu.be/LrjlW00kkws)
+    \item \textit{"How to Get Over Your Fear of Public Speaking"} di Expert Academy %(https://youtu.be/So3Z93hEPDk)
+\end{itemize}
+
+I video sono stati scaricati utilizzando il tool open source \verb|yt-dlp| (\url{https://github.com/yt-dlp/yt-dlp}).
+
+\subsection{Processing}
+
+I video individuati non corrispondevano tutti perfettamente alle specifiche richieste, per cui per poterli integrare nella ricerca, è stato necessario fare del pre-processing.
+
+\subsubsection{Trimming}
+
+Tutti i video individuati presentavano un introduzione e una coda al video, con musiche, scritte ed elementi animati. I video individuati sono per cui stati tagliati, in modo da eliminare gli elementi non utili al nostro studio, e mantenere solamente la parte di video parlata. Per il trimming dei video è stato utilizzato il tool open source gratuito \verb|ffmpeg| (\url{https://www.ffmpeg.org}), così da favorire un'operazione veloce e priva di operazioni di re-econding ove possibile.
+
+\subsubsection{Pulizia dello sfondo}
+
+Alcuni dei video individuati inoltre presentavano alcuni elementi grafici a comparsa durante la parte parlata del video, come grafici o piccole scritte. Questo è stato valutato come accettabile visto che tali elementi non venivano referenziati esplicitamente dallo speaker, e comparivano solo in sovrapposizione dello sfondo.\footnote{Ricordiamo che tutti i video individuati presentano uno sfondo bianco uniforme, che non cambia nel tempo.} Questo ha permesso la rimozione di tali elementi aggiuntivi tramite una semplice operazione di video-editing, detta mascheramento.
+
+\paragraph{Mascheramento}
+
+Si identifica un fotogramma dell'immagine dove non vi sono elementi a coprire la parte dello sfondo interessata, e si salva tale fotogramma come file a parte. Questo fotogramma "pulito" è detto \textit{clean plate}. Dal momento che lo sfondo è statico, ovvero non cambia nel tempo, il clean plate funge da copia pulita dell'immagine, che possiamo utilizzare per coprire qualunque elemento che compare in sovrapposizione dello sfondo. Con un qualunque programma di editing, si sovrappone il clean plate alla porzione temporale di video in cui compare l'elemento da rimuovere, ad esempio una scritta. Si effettua poi una maschera, che va a ritagliare il clean plate, in modo che, come una toppa, vada a coprire il testo in sovra-impressione, rimuovendolo dal video.
+
+% INSERIRE FIGURE con descrizione "Una operazione di mascheramento con clean plate in Adobe Premiere Pro"
+
+\subsubsection{Estrazione del testo}
+
+Per poter generare i doppioni fake, è stato estratto il testo associato al parlato presente nei video individuati. È stato utilizzato il sito web gratuito \url{https://downsub.com} per scaricare i sottotitoli già forniti da YouTube. La maggior parte dei video presentavano dei sottotitoli ufficiali, ovvero inseriti direttamente dagli autori dei video. Per gli altri, sono stati scaricati i sottotitoli generati automaticamente da YouTube, utilizzando quindi di fatto il motore SpeechToText integrato di YouTube.
+
+In ogni caso, tutti i sottotitoli scaricati sono stati poi revisionati a mano per eliminare refusi, errori di battitura o di trascrizione, e per eliminare elementi non parlati o associati alle parti di video che sono state tagliate via. Questi file di sottotitolo sono tutto il necessario per generare i video fake.
+
 \section{Generazione dei video fake}
 
 \clearpage
