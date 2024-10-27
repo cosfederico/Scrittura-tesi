@@ -1,6 +1,7 @@
 \chapter{Generazione dei video fake}
 
 \section{Funzionamento}
+\label{sec:funzionamento}
 
 \section{Valutazione delle soluzioni disponibili}
 
@@ -62,11 +63,11 @@ I video sono stati scaricati utilizzando il tool open source \verb|yt-dlp| (\url
 
 \subsection{Processing}
 
-I video individuati non corrispondevano tutti perfettamente alle specifiche richieste, per cui per poterli integrare nella ricerca, è stato necessario fare del pre-processing.
+I video individuati non corrispondevano tutti perfettamente alle specifiche richieste, per cui per poterli integrare nella ricerca è stato necessario fare del pre-processing.
 
 \subsubsection{Trimming}
 
-Tutti i video individuati presentavano un introduzione e una coda al video, con musiche, scritte ed elementi animati. I video individuati sono per cui stati tagliati, in modo da eliminare gli elementi non utili al nostro studio, e mantenere solamente la parte di video parlata. Per il trimming dei video è stato utilizzato il tool open source gratuito \verb|ffmpeg| (\url{https://www.ffmpeg.org}), così da favorire un'operazione veloce e priva di operazioni di re-econding ove possibile.
+Tutti i video individuati presentavano un introduzione e una coda al video, con musiche, scritte o elementi animati. I video individuati sono per cui stati tagliati, in modo da eliminare gli elementi non utili al nostro studio, e mantenere solamente la parte di video parlata. Per il trimming dei video è stato utilizzato il tool open source gratuito \verb|ffmpeg| (\url{https://www.ffmpeg.org}), così da favorire un'operazione veloce e priva di operazioni di re-econding ove possibile.
 
 \subsubsection{Pulizia dello sfondo}
 
@@ -74,7 +75,7 @@ Alcuni dei video individuati inoltre presentavano alcuni elementi grafici a comp
 
 \paragraph{Mascheramento}
 
-Si identifica un fotogramma dell'immagine dove non vi sono elementi a coprire la parte dello sfondo interessata, e si salva tale fotogramma come file a parte. Questo fotogramma "pulito" è detto \textit{clean plate}. Dal momento che lo sfondo è statico, ovvero non cambia nel tempo, il clean plate funge da copia pulita dell'immagine, che possiamo utilizzare per coprire qualunque elemento che compare in sovrapposizione dello sfondo. Con un qualunque programma di editing, si sovrappone il clean plate alla porzione temporale di video in cui compare l'elemento da rimuovere, ad esempio una scritta. Si effettua poi una maschera, che va a ritagliare il clean plate, in modo che, come una toppa, vada a coprire il testo in sovra-impressione, rimuovendolo dal video.
+Si identifica un fotogramma dell'immagine dove non vi sono elementi a coprire la parte dello sfondo interessata, e si salva tale fotogramma come file a parte. Questo fotogramma "pulito" è detto \textit{clean plate}. Dal momento che lo sfondo è statico, ovvero non cambia nel tempo, il clean plate funge da copia pulita dell'immagine, che possiamo utilizzare per coprire qualunque elemento che compare in sovrapposizione dello sfondo. Con un qualunque programma di editing, si sovrappone il clean plate alla porzione temporale di video in cui compare l'elemento da rimuovere, ad esempio una scritta. Si effettua poi una maschera, che va a ritagliare il clean plate. Come una toppa, il clean plate mascherato copre il testo in sovra-impressione, rimuovendolo dal video.
 
 \begin{figure}[ht]
     \centering
@@ -101,11 +102,93 @@ Si identifica un fotogramma dell'immagine dove non vi sono elementi a coprire la
 \end{figure}
 
 \subsubsection{Estrazione del testo}
+\label{sec:text_extraction}
 
 Per poter generare i doppioni fake, è stato estratto il testo associato al parlato presente nei video individuati. È stato utilizzato il sito web gratuito \url{https://downsub.com} per scaricare i sottotitoli già forniti da YouTube. La maggior parte dei video presentavano dei sottotitoli ufficiali, ovvero inseriti direttamente dagli autori dei video. Per gli altri, sono stati scaricati i sottotitoli generati automaticamente da YouTube, utilizzando quindi di fatto il motore SpeechToText integrato di YouTube.
 
 In ogni caso, tutti i sottotitoli scaricati sono stati poi revisionati a mano per eliminare refusi, errori di battitura o di trascrizione, e per eliminare elementi non parlati o associati alle parti di video che sono state tagliate via. Questi file di sottotitolo sono tutto il necessario per generare i video fake.
 
 \section{Generazione dei video fake}
+
+Per la generazione dei video fake è stata utilizzata la piattaforma HeyGen (\url{https://www.heygen.com}). Per ognuno dei video real individuati sono stati generati due video fake, uno con un avatar di genere maschile e uno con un avatar di genere femminile. Per la generazione di un video fake è stata seguita la seguente procedura, per ogni video real:
+
+\begin{enumerate}
+    \item Scelta di un avatar
+    \item Scelta del modello di voce più adatto all'avatar scelto
+    \item Se non è stata trovata una coppia avatar-voce convincente tornare al passo 1 passando al prossimo avatar
+    \item Inserimento del testo estratto dal video real
+    \item Fine-tuning del testo per migliorare intonazione, pronuncia e pause
+    \item Revisione del risultato, ripetere il passo 5 se necessario
+    \item Ripetizione del processo con un avatar del genere opposto
+\end{enumerate}
+
+% La procedura di generazione dei video fake ha previsto: la selezione degli avatar da utilizzare tra quelli forniti dalla piattaforma, la scelta della voce da utilizzare, ed eventuali modifiche del testo per migliorare la pronuncia o l'intonazione.
+
+\subsection{Scelta degli avatar}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.62\linewidth]{images/pick_avatar}
+    \caption{Esempio di schermata di selezione\\ dell'avatar della piattaforma HeyGen}
+    \label{fig:pick_avatar}
+\end{figure}
+
+% \begin{figure}[t]
+%     \centering
+%     \includegraphics[width=0.9\linewidth]{images/heygen_platform}
+%     \caption{La piattaforma di generazione HeyGen}
+%     \label{fig:heygen}
+% \end{figure}
+
+Il punto di partenza per la generazione di un video fake è la scelta dell'avatar da utilizzare, ovvero la persona che verrà animata per realizzare il video parlato. La piattaforma HeyGen mette a disposizione una sua selezione di avatar proprietari, disponibili a tutti gli utenti del servizio, per realizzare i video fake. Gli avatar sono figure di persone a mezzo busto o in primo piano, prive di sfondo. È possibile vedere in Figura \ref{fig:pick_avatar} un esempio ridotto della schermata di selezione degli avatar forniti da HeyGen. Tra gli avatar sono disponibili look molto variegati, tra cui figure in abiti formali, completi, in camice, abiti da lavoro, abiti casual, etc. Per il nostro studio, sono stati considerati avatar con un look semi-formale o casual.
+
+La piattaforma offre anche la possibilità di realizzare un proprio avatar, a propria immagine e somiglianza, ma non è stato possibile nel nostro studio usufruire di questa feature, avendo utilizzato come video real video di terzi.\footnote{È richiesto il consenso esplicito del soggetto rappresentato per realizzare l'avatar.} 
+
+% future works: ripetere l'esperimento realizzando video in casa, così da poter avere la stessa persona tra video real e fake
+
+\subsection{Scelta delle voci}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.9\linewidth]{images/voice_selection}
+    \caption{Schermata di selezione della voce sulla piattaforma HeyGen.}
+    \label{fig:voice_selection}
+\end{figure}
+
+Come anticipato, la scelta degli avatar non è stata fatta in modo indipendente, ma è stata guidata dalla disponibilità dei modelli di voce forniti dalla piattaforma HeyGen. Difatti, anche se il video generato è visivamente impeccabile, una voce innaturale o non calzante all'avatar selezionato è in grado di rompere completamente l'illusione, risultando chiaramente artificiale, o può essere un fattore di distrazione, in grado di impedire la fruizione normale del contenuto. Riconosciamo come il giudizio di una proprietà come una voce "calzante al soggetto identificato" può essere fortemente personale, così come anche fortemente umana, e meriterebbe uno studio approfondito a parte. Per i nostri scopi, la scelta tra più voci possibili è stata fatta tramite il giudizio umano. 
+
+\subsubsection{Selezione delle categorie di voci adatte}
+
+La piattaforma mette a disposizione un catalogo di voci molto variegato, suddiviso per categorie. Le categorie fornite sono visibili in Figura \ref{fig:voice_selection}, e sono: genere (Maschio, Femmina), età (Child, Young adult, Middle-aged, Old), e "use case" (Conversazionale, Pubblicità e social, Informativo ed educativo, Narrativo). Sono state innanzitutto filtrate le voci selezionando il genere appropriato e la fascia di età appropriata per l'avatar selezionato. In aggiunta, sono state favoreggiate voci categorizzate come a scopo "Informativo ed educativo", ma se necessario sono state valutate anche voci con altri use-case.
+
+\subsubsection{Processo di selezione}
+
+Isolate le possibili voci candidate, è stato generato uno video per ogni voce con lo stesso avatar. È stata selezionata poi, tra le candidate, la voce che, visionando il video generato, al giudizio umano è parsa più naturale e convincente con l'avatar selezionato. Se nessuna voce delle voci provate tra quelle fornite dalla piattaforma HeyGen è risultata convincente, l'avatar è stato scartato.\footnote{C'è da notare come con il tempo la piattaforma si è evoluta, e al tempo di scrittura di questo documento, HeyGen fornisce insieme agli avatar una pre-selezione di voci adatte all'avatar selezionato. Questo processo risulterebbe per cui molto semplificato.}
+
+\subsubsection{Lingua} Tutti i video sono stati generati in lingua inglese poiché, sebbene HeyGen fornisca modelli di voci italiane, questi al tempo della ricerca erano limitati in numero e di qualità fortemente limitata rispetto alle controparti anglosassoni.
+
+\subsection{Scrittura del testo}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.9\linewidth]{images/text_heygen}
+    \caption{Separazione del testo in paragrafi per introdurre pause naturali.}
+    \label{fig:text_heygen}
+\end{figure}
+
+L'ultimo passaggio per generare un video fake è l'inserimento del testo da far esporre all'avatar. Nel nostro caso, si tratta del testo estratto dai video real, come spiegato in \ref{sec:text_extraction}. 
+I punti chiave di questo passaggio sono: l'introduzione di pause per un flusso naturale del discorso, e la specifica di particolari pronunce, ove necessario.
+
+\subsubsection{Introduzione di pause}
+
+La piattaforma HeyGen permette di introdurre pause nel discorso in modo naturale separando il testo in "paragrafi". I paragrafi sono blocchi indipendenti di testo su cui è generata la voce. Tra un paragrafo e l'altro, viene inserita automaticamente una piccola pausa, permettendo un flusso naturale del discorso. È possibile vedere un esempio di separazione in paragrafi in Figura \ref{fig:text_heygen}.
+
+\subsubsection{Revisione del risultato}
+
+A partire dal testo inserito viene generato l'audio della voce, che farà da guida per la generazione dei movimenti dell'avatar, come spiegato in \ref{sec:funzionamento}. Prima di avviare la generazione del video è possibile generare un'anteprima della voce. Se non si identificano problemi di pausa o di pronuncia, si fa partire la generazione del video.
+
+\subsection{Revisione dei risultati}
+
+Una volta generati i video, questi sono visualizzabili sulla piattaforma e scaricabili gratuitamente in formato 720p o 1080p. Per ogni video real è stata generata una coppia di video fake, uno con un avatar di genere maschile e un altro con un avatar di genere femminile.
 
 \clearpage
