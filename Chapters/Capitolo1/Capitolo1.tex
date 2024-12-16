@@ -238,9 +238,72 @@ Entrambi questi problemi trovano una soluzione comune: registrare dei video ad-h
 
 \subsection{Scrittura dei testi}
 
+La realizzazione dei video con attori parte dalla scrittura dei testi che verranno esposti. Come previsto dal protocollo sperimentale, sono stati realizzati due testi, inerenti a due argomenti diversi, di media lunghezza. Questo progetto è stato svolto in collaborazione con l'Università Cattolica del Sacro Cuore, e i testi necessari per la realizzazione dei video sono stati scritti da un tesista dell'Università Cattolica, Matteo Scarinzi, come parte del suo progetto di tesi, seguito dal Prof. Andrea Gaggioli, docente della facoltà di Psicologia della Cattolica.
+
 \subsection{Individuazione degli attori}
 
+Una volta scritti i testi, è stato necessario individuare gli attori che presteranno il loro aspetto e la loro voce per registrare i video reali, e successivamente per realizzare i video fake.
+
+Sono stati cercati un uomo e una donna, di età simile, preferibilmente con già qualche esperienza nell'esporre, spiegare, e parlare in pubblico, per facilitare le operazioni di ripresa dei video. È importante che i due attori abbiano età simile, per evitare che una chiara differenza di età possa avere un'influenza diversa sull'esperienza di visione dei video, in termini di comprensione e grado di attenzione e coinvolgimento.
+
+La ricerca è stata effettuata dal tesista della Cattolica Matteo Scarinzi, all'interno del corpo docenti e dottorandi della facoltà di Psicologia della Cattolica, seguendo l'intuizione che docenti e dottorandi abbiano buona esperienza nell'esporre argomenti ad alta voce e parlare al pubblico. Sono stati individuati come attori:
+\begin{itemize}
+    \item Michele Paleologo, per la parte maschile, dottorando della facoltà di Psicologia dell'Università Cattolica del Sacro Cuore
+    \item Marta Pizzolante, per la parte femminile, dottoranda della facoltà di Psicologia dell'Università Cattolica del Sacro Cuore
+\end{itemize}
+
 \subsection{Acquisizione dei video}
+
+I video sono stati registrati presso la sede dell'Università Cattolica del Sacro Cuore in Via Buonarroti, 30 a Milano, nell'aula privata del Prof. Andrea Gaggioli, docente di Filosofia della Cattolica e collaboratore di questo progetto.
+
+I video sono stati registrati con luce artificiale, così da avere il pieno controllo della luce in scena, e non dipendere dalle condizioni meteo, come il movimento delle nuvole e del sole per la quantità di luce presente in scena durante i video e tra un video e l'altro. Per compensare la luminosità ridotta delle luci della stanza è stata utilizzata una ring light\footnote{Lampada a forma di anello a luce bianca, molto luminosa, che permette attraverso la sua forma caratteristica di illuminare uniformemente il viso senza creare ombre dure sul volto.},posta davanti la telecamera, così da illuminare gli attori. Per la acquisizione dei video è di fondamentale importanza che i testi scritti siano seguiti parola per parola dagli attori, per evitare che differenze tra diverse modalità di esposizione possano influenzare i risultati ottenuti. Per garantire ciò senza che gli attori debbano imparare a memoria i testi scritti agli attori, è stato acquistato e utilizzato un teleprompter\footnote{Un meccanismo a specchio che permette a chi si pone davanti alla telecamera di leggere il testo senza distogliere lo sguardo dalla camera.}. Per la registrazione dell'audio è stato utilizzato un microfono lavalier wireless. Il setup utilizzato per la registrazione è visibile in Figura \ref{fig:recording_setup}.
+
+Nonostante la capacità del servizio di generazione dei video fake di replicare lo sfondo nei video catturati, i video sono stati registrati di fronte a uno sfondo bianco, per evitare la presenza di possibili elementi di distrazione nello sfondo. È possibile vedere in Figura \ref{fig:recording_session} un esempio della sessione di registrazione.
+
+\begin{figure}[t]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=0.95\linewidth]{images/recording_m} 
+        \caption{}
+        \label{fig:recording_m}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=0.95\linewidth]{images/recording_f}
+        \caption{}
+        \label{fig:recording_f}
+    \end{subfigure}
+    \hfill
+    \caption{Sessioni di registrazione dei video reali con attori, con: (a) Michele Paleologo nella parte maschile, (b) Marta Pizzolante nella parte femminile.}
+    \label{fig:recording_session}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.62\linewidth]{images/recording_setup}
+    \caption{Setup di registrazione dei video fake, con videocamera, teleprompter e ring light.}
+    \label{fig:recording_setup}
+\end{figure}
+
+\subsection{Video processing}
+
+I video registrati sono stati processati per migliorare la qualità dell'immagine. Sono stati applicati un filtro di riduzione del rumore e un aumento della luminosità dell'immagine.
+
+\subsubsection{De-noising}
+
+\subsubsection{Color Grading}
+
+\subsection{Audio Processing}
+
+L'audio registrato è stato normalizzato a un valore di loudness di -23 LUFS (±0.5 LU) integrati (I), secondo lo standard Europeo EBU R128 di distribuzione audio in ambito broadcast. Inoltre, l'audio è stato pulito con un filtro di riduzione del rumore di fondo, ed è stata applicata una curva di equalizzazione (Figura \ref{fig:eq_curve}) e una leggera compressione per rendere l'ascolto più naturale e gradevole.
+
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.62\linewidth]{images/eq_curve}
+    \caption{Curva di equalizzazione dell'audio registrato.}
+    \label{fig:eq_curve}
+\end{figure}
 
 \subsection{Generazione dei video fake}
 
