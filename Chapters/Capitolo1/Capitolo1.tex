@@ -282,7 +282,7 @@ Nonostante la capacità del servizio di generazione dei video fake di replicare 
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.62\linewidth]{images/recording_setup}
+    \includegraphics[width=0.4\linewidth]{images/recording_setup}
     \caption{Setup di registrazione dei video fake, con videocamera, teleprompter e ring light.}
     \label{fig:recording_setup}
 \end{figure}
@@ -293,16 +293,59 @@ Per la realizzazione dei video fake è stato registrato per ogni attore un video
 
 \subsection{Video processing}
 
-I video registrati sono stati processati per migliorare la qualità dell'immagine. Sono stati applicati un filtro di riduzione del rumore e un aumento della luminosità dell'immagine.
+I video registrati sono stati processati per migliorare la qualità dell'immagine. Sono stati applicati un filtro di riduzione del rumore e un aumento della luminosità dell'immagine. Per l'elaborazione dei video è stato utilizzato il programma gratuito Da Vinci Resolve.
 
-\subsubsection{De-noising}
+\subsubsection{Riduzione del rumore}
+
+\begin{figure}[t]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=0.95\linewidth]{images/before_nr} 
+        \caption{Prima della riduzione del rumore}
+        \label{fig:before_nr}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=0.95\linewidth]{images/after_nr}
+        \caption{Dopo la riduzione del rumore}
+        \label{fig:after_nr}
+    \end{subfigure}
+    \hfill
+    \caption{Esempio di filtro di riduzione del rumore dell'immagine nei video con attori.}
+    \label{fig:noise_reduction}
+\end{figure}
+
+I video sono stati registrati in condizioni di luminosità ristretta, utilizzando la luce artificiale dell'aula a disposizione e una ring light come luce di supporto. Per questo motivo, l'immagine presentava del leggero rumore, che è stato rimosso tramite un filtro di riduzione del rumore, incluso nel programma utilizzato. Il filtro di riduzione del rumore è stato controbilanciato con un filtro di sharpening\footnote{Un aumento della nitidezza dell'immagine, per rendere i dettagli più evidenti.}, per evitare la perdita di dettagli dovuta alla riduzione del rumore. È possibile vedere un esempio del risultato di tale processo in Figura \ref{fig:noise_reduction}\footnote{Si tratta di un esempio molto sottile, e vista la dovuta compressione dell'immagine, necessaria per l'inserimento delle figure in questo documento, e la sua successiva stampa, potrebbe non essere facilmente apprezzabile la differenza tra le due immagini.}.
 
 \subsubsection{Color Grading}
 
+L'immagine è stata migliorata con una correzione del bilanciamento del bianco, per correggere i colori, un leggero aumento della saturazione e della nitidezza, per correggere il profilo neutro della fotocamera utilizzata per le riprese, ed è stata aumentata la luminosità dell'immagine. È possibile vedere un esempio risultato finale in Figura \ref{fig:color_grading}.
+
+\begin{figure}[t]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=0.99\linewidth]{images/before_grading} 
+        \caption{Immagine originale}
+        \label{fig:before_grading}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=0.99\linewidth]{images/after_grading}
+        \caption{Risultato finale}
+        \label{fig:after_grading}
+    \end{subfigure}
+    \hfill
+    \caption{Esempio della correzione dell'immagine effettuata su video con attori.}
+    \label{fig:color_grading}
+\end{figure}
+
+I video sono stati esportati in formato \verb|.mp4|, con codifica H.264 con un target di bitrate di \verb|2048 kb/s|, a \verb|23.976 fps|.
+
 \subsection{Audio Processing}
 
-L'audio registrato è stato normalizzato a un valore di loudness di -23 LUFS (±0.5 LU) integrati (I), secondo lo standard Europeo EBU R128 di distribuzione audio in ambito broadcast. Inoltre, l'audio è stato pulito con un filtro di riduzione del rumore di fondo, ed è stata applicata una curva di equalizzazione (Figura \ref{fig:eq_curve}) e una leggera compressione per rendere l'ascolto più naturale e gradevole.
+L'audio registrato è stato normalizzato a un valore di loudness di -23 LUFS (±0.5 LU) integrati (I), secondo lo standard Europeo EBU R128 di distribuzione audio in ambito broadcast. Inoltre, l'audio è stato pulito con un filtro di riduzione del rumore di fondo, ed è stata applicata una curva di equalizzazione (Figura \ref{fig:eq_curve}) e una leggera compressione per rendere l'ascolto più stabile, naturale e gradevole.
 
+L'audio è stato convertito in formato AAC mono a \verb|128 kb/s| per poter essere inserito nel contenitore \verb|.mp4|.
 
 \begin{figure}[t]
     \centering
