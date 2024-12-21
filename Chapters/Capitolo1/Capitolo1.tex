@@ -193,6 +193,7 @@ Isolate le possibili voci candidate, è stato generato un video per ogni voce. �
 \subsubsection{Lingua} Tutti i video sono stati generati in lingua inglese poiché, sebbene HeyGen fornisca modelli di voci italiane, questi al tempo della ricerca erano limitati in numero e di qualità fortemente limitata rispetto alle controparti anglosassoni.
 
 \subsection{Inserimento del testo}
+\label{sec:text_editing}
 
 \begin{figure}[t]
     \centering
@@ -355,5 +356,25 @@ L'audio è stato convertito in formato AAC mono a \verb|128 kb/s| per poter esse
 \end{figure}
 
 \subsection{Generazione dei video fake}
+
+La generazione dei video fake risulta molto semplificata nel caso di video realizzati con attori. Una volta ottenuto il consenso esplicito degli attori che si sono prestati per la realizzazione dei video, tramite la piattaforma HeyGen è possibile creare degli avatar personalizzati (Instant Avatar), a loro immagine e somiglianza. Gli Instant Avatar creano una copia virtuale sia dell'aspetto che della voce degli attori, replicando in tutto e per tutto le fattezze del video originale. Non è più necessario, quindi, dover selezionare l'avatar più adatto e la voce più adatta per il video in questione.
+
+\paragraph{Creazione degli Instant Avatar}
+
+Per la creazione degli Instant Avatar, come già anticipato, è stato usato un video a parte, registrato per ogni attore, realizzato seguendo le linee guida indicate dalla piattaforma per la creazione di un Instant Avatar:
+\begin{itemize}
+    \item Un video dalla durata di 2-5 minuti
+    \item Frequenti pause tra una frase e l'altra
+    \item Si può parlare di qualsiasi argomento, ma cercando di esagerare con le emozioni, così da donare espressività all'avatar
+    \item Uso di movimenti delle braccia generici, evitando gesti di indicazione
+\end{itemize}
+
+Caricato il video di riferimento, la piattaforma si occupa di tutto il resto, e in una decina di minuti l'avatar è pronto per essere utilizzato.
+
+\subsubsection{Creazione dei video}
+
+La creazione dei video è a sua volta semplificata. Creati i due Instant Avatar associati ai due attori, sono stati presi i due testi, scritti dal tesista della Cattolica Matteo Scarinzi, e sono stati caricati sulla piattaforma per la generazione dei video. 
+
+Come già visto in \ref{sec:text_editing}, i testi sono stati separati in sezioni, così da introdurre naturalmente delle pause durante nel discorso generato. Inoltre, è stata aggiunta della punteggiatura aggiuntiva e sono state modificate alcune parole dei testi, in modo da correggere alcuni problemi di intonazione e pronuncia che gli avatar hanno incontrato durante la generazione del testo. Ad esempio, la parola "prosodia" è stata scritta esplicitando l'accento, "prosodìa", così da correggerne la pronuncia, dal momento che la voce generata pronunciava la parola con l'accento sbagliato. La qualità e la precisione dell'intonazione del discorso generato dipendono fortemente dal discorso di riferimento che è stato utilizzato per la generazione dell'avatar. Seguendo l'esempio precedente, è evidente che i modelli di voce generati sono stati generati da un discorso che non conteneva la parola "prosodia" al suo interno, lasciando al modello il compito di ricavarne la pronuncia, non garantendo ricavi quella corretta, rendendo necessario la specifica a mano in caso di errore.
 
 \clearpage
