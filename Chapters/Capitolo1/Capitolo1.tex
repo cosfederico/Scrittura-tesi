@@ -60,6 +60,7 @@ Viste le due possibili soluzioni per la generazione dei video fake, sono state v
 Vediamo ora i dettagli di entrambe le soluzioni, riportando l'approccio seguito, e valutando infine i pro e i contro di ogni soluzione.
 
 \section{Video generati da video scaricati dal web}
+\label{sec:generati_dal_web}
 
 \subsection{Criterio di ricerca}
 È stata utilizzata per la ricerca dei video la piattaforma YouTube. Il criterio di ricerca usato è stato: cercare i video più simili possibili ai video fake che siamo in grado di generare, così da minimizzare le differenze tra video reali e video fake. Minimizzando le differenze tra video reali e video fake massimizziamo le possibilità che diverse percezioni dei video visualizzati siano dovute solo alla natura (reale o fittizia) dei video visualizzati e non ad altri dettagli come ambientazione, soggetto, etc. Per tali ragioni, sono stati cercati video:
@@ -218,6 +219,7 @@ A partire dal testo inserito viene generato l'audio della voce, che farà da gui
 Una volta generati i video, questi sono visualizzabili sulla piattaforma e scaricabili gratuitamente in formato 720p o 1080p. I video sono stati scaricati in formato 1080p.
 
 \section{Video generati con attori}
+\label{sec:generati_con_attori}
 
 \subsection{Le limitazioni dell'approccio via web}
 
@@ -357,24 +359,80 @@ L'audio è stato convertito in formato AAC mono a \verb|128 kb/s| per poter esse
 
 \subsection{Generazione dei video fake}
 
-La generazione dei video fake risulta molto semplificata nel caso di video realizzati con attori. Una volta ottenuto il consenso esplicito degli attori che si sono prestati per la realizzazione dei video, tramite la piattaforma HeyGen è possibile creare degli avatar personalizzati (Instant Avatar), a loro immagine e somiglianza. Gli Instant Avatar creano una copia virtuale sia dell'aspetto che della voce degli attori, replicando in tutto e per tutto le fattezze del video originale. Non è più necessario, quindi, dover selezionare l'avatar più adatto e la voce più adatta per il video in questione.
+La generazione dei video fake risulta molto semplificata nel caso di video realizzati con attori. Una volta ottenuto il consenso esplicito degli attori che si sono prestati per la realizzazione dei video, tramite la piattaforma HeyGen è possibile effettuare la creazione degli avatar personalizzati (Instant Avatar). Gli Instant Avatar creano una copia virtuale sia dell'aspetto che della voce degli attori, replicando in tutto e per tutto le fattezze del video originale. Non è più necessario, quindi, dover selezionare l'avatar e la voce più adatti per il video in questione.
 
 \paragraph{Creazione degli Instant Avatar}
 
 Per la creazione degli Instant Avatar, come già anticipato, è stato usato un video a parte, registrato per ogni attore, realizzato seguendo le linee guida indicate dalla piattaforma per la creazione di un Instant Avatar:
 \begin{itemize}
-    \item Un video dalla durata di 2-5 minuti
+    \item Durata di 2-5 minuti
     \item Frequenti pause tra una frase e l'altra
     \item Si può parlare di qualsiasi argomento, ma cercando di esagerare con le emozioni, così da donare espressività all'avatar
     \item Uso di movimenti delle braccia generici, evitando gesti di indicazione
 \end{itemize}
 
-Caricato il video di riferimento, la piattaforma si occupa di tutto il resto, e in una decina di minuti l'avatar è pronto per essere utilizzato.
+I video di riferimento registrati sono venuti di circa 3 minuti. Caricato il video di riferimento, la piattaforma si occupa di tutto il resto, e in una decina di minuti l'avatar è pronto per essere utilizzato.
 
 \subsubsection{Creazione dei video}
 
-La creazione dei video è a sua volta semplificata. Creati i due Instant Avatar associati ai due attori, sono stati presi i due testi, scritti dal tesista della Cattolica Matteo Scarinzi, e sono stati caricati sulla piattaforma per la generazione dei video. 
+La creazione dei video fake è a sua volta semplificata. Creati i due Instant Avatar associati ai due attori, sono stati presi i due testi, scritti dal tesista della Cattolica Matteo Scarinzi, e sono stati caricati sulla piattaforma per la generazione dei video. 
 
-Come già visto in \ref{sec:text_editing}, i testi sono stati separati in sezioni, così da introdurre naturalmente delle pause durante nel discorso generato. Inoltre, è stata aggiunta della punteggiatura aggiuntiva e sono state modificate alcune parole dei testi, in modo da correggere alcuni problemi di intonazione e pronuncia che gli avatar hanno incontrato durante la generazione del testo. Ad esempio, la parola "prosodia" è stata scritta esplicitando l'accento, "prosodìa", così da correggerne la pronuncia, dal momento che la voce generata pronunciava la parola con l'accento sbagliato. La qualità e la precisione dell'intonazione del discorso generato dipendono fortemente dal discorso di riferimento che è stato utilizzato per la generazione dell'avatar. Seguendo l'esempio precedente, è evidente che i modelli di voce generati sono stati generati da un discorso che non conteneva la parola "prosodia" al suo interno, lasciando al modello il compito di ricavarne la pronuncia, non garantendo ricavi quella corretta, rendendo necessario la specifica a mano in caso di errore.
+Come già visto in \ref{sec:text_editing}, i testi sono stati separati in sezioni, così da introdurre naturalmente delle pause nel discorso generato. Inoltre, è stata aggiunta della punteggiatura aggiuntiva e sono state modificate alcune parole dei testi, esplicitandone l'accento, in modo da correggere alcuni problemi di intonazione e pronuncia che gli avatar hanno incontrato durante la generazione del testo. Ad esempio, la parola "prosodia" è stata scritta esplicitando l'accento, "prosodìa", così da correggerne la pronuncia, dal momento che la voce generata pronunciava la parola con l'accento sbagliato. La qualità e la precisione dell'intonazione del discorso generato dipendono fortemente dal discorso di riferimento che è stato utilizzato per la generazione dell'avatar. Seguendo l'esempio precedente, è evidente che i modelli di voce generati sono stati generati da un discorso che non conteneva la parola "prosodia" al suo interno, lasciando al modello il compito di ricavarne la pronuncia, non garantendo ricavi quella corretta, rendendo necessario la specifica a mano in caso di errore.
+
+\subsubsection{Download del risultato}
+
+Sono stati realizzati un video fake per ogni attore (maschio e femmina), e per ogni attore un video per ognuno dei due testi realizzati, per un totale di quattro video fake, associati ai quattro video reali registrati. I video fake sono stati scaricati in formato 1080p e 25fps.
+
+\section{Pro e contro}
+
+In questa sezione analizziamo i pro e i contro dei due approcci valutati per la generazione dei video:
+\begin{itemize}
+    \item Video generati da video scaricati dal web (\ref{sec:generati_dal_web})
+    \item Video generati con attori (\ref{sec:generati_con_attori})
+\end{itemize}
+
+\subsection{Video generati da video scaricati dal web}
+
+Questo approccio è consistito nel trovare dei video validi da utilizzare come video reali sul web, e utilizzare gli avatar forniti dalla piattaforma HeyGen per creare dei video fake con lo stesso contenuto.
+
+\subsubsection{Pro}
+
+\begin{itemize}
+    \item Non è necessario scrivere dei testi appositi
+    \item Non è necessario registrare da sé dei video, per cui non serve cercare attori, recuperare l'attrezzatura necessaria, e investire il tempo richiesto per la registrazione e la produzione dei video registrati
+    \item Ottenimento dei video reali veloce
+\end{itemize}
+
+\subsubsection{Contro}
+
+\begin{itemize}
+    \item Non si ha controllo sulla qualità, argomento, lunghezza e complessità del contenuto esposto
+    \item La ricerca dei video può richiedere tempo e fornire risultati insoddisfacenti a seconda dei criteri di selezione richiesti e la disponibilità della piattaforma di ricerca video utilizzata
+    \item I video reali e fake presentano soggetti diversi, che dipendono dagli avatar forniti dalla piattaforma scelta, il che può influenzare l'esperienza visiva introducendo una variabile esterna indesiderata
+    \item Creazione dei video fake più lenta, vista la necessità di selezione dell'avatar e della voce più adatti
+\end{itemize}
+
+\subsection{Video generati con attori}
+
+Questo approccio è consistito nella scrittura dei testi da esporre, la ricerca di due attori (maschio e femmina), la registrazione dei video reali, la creazione di avatar personalizzati e l'utilizzo dei testi scritti per la generazione dei video fake.
+
+\subsubsection{Pro}
+
+\begin{itemize}
+    \item I video reali e fake sono visivamente identici, eliminando qualsiasi variabile esterna, e l'unica differenza tra i due video è la loro natura (reale o fittizia)
+    \item Si ha il totale controllo sul contenuto esposto, in termini di qualità, complessità, lunghezza e argomento, essendo questo scritto appositamente
+    \item Generazione dei video fake molto più veloce, in quanto non serve selezionare l'avatar e la voce più adatta, essendo l'aspetto e la voce clonati dalla piattaforma di generazione dei video
+\end{itemize}
+
+\subsubsection{Contro}
+
+\begin{itemize}
+    \item Acquisizione dei video reali molto più lenta, in quanto richiede la scrittura dei contenuti, la ricerca di attori per la registrazione dei video, e la registrazione e post-produzione dei video stessi
+    \item La qualità dei video fake realizzati dipende dalla qualità dei video registrati, in termini di qualità video/audio e in termini di qualità dell'avatar personalizzato creato
+\end{itemize}
+
+\subsection{La scelta}
+
+Visti i pro e i contro di ogni approccio, è stato scelto per la ricerca il secondo approccio, e quindi sono stati utilizzati i video realizzati con attori. Nonostante il tempo non indifferente richiesto dalla scrittura, acquisizione e produzione dei video reali, è stato valutato di estrema importanza avere lo stesso soggetto tra video reale e video fake, così da eliminare qualunque tipo di bias dovuto a soggetti diversi, e poter essere sicuri che eventuali risultati diversi ottenuti da i due tipi di video  (reali o fake) possano essere causati solo da tale differenza, e non da fattori esterni.
 
 \clearpage
