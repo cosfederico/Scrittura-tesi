@@ -1,6 +1,186 @@
-\chapter{Protocollo di acquisizione}
+\chapter{Protocollo sperimentale}
+
+Prima di iniziare, è bene presentare il protocollo sperimentale che è stato definito, in quanto questo è il filo conduttore che lega tutto il progetto di ricerca di tesi. Il progetto è stato svolto in collaborazione con il dipartimento di Psicologia dell'Università Cattolica del Sacro Cuore, con il professore Andrea Gaggioli, il quale ha supervisionato e contribuito per la definizione dei questionari alla stesura del protocollo.
 
 \section{Stesura del protocollo}
+
+\subsection{Obiettivo}
+
+L'obiettivo di questo studio è confrontare l’esperienza di apprendimento per due contenuti didattici distinti, presentati in versioni con docenti reali o sintetici e in varianti maschili o femminili, per esplorare l’impatto delle variabili di presentazione e genere del docente, e del contenuto stesso, sulla qualità percepita dell’apprendimento e sulle risposte emotive e fisiologiche. Per fare questo, è stato ideato un esperimento fittizio, dove i partecipanti prendono visione di alcuni contenuti didattici, e tramite la somministrazione di questionari di valutazione dell'esperienza visiva, la somministrazione di domande di comprensione, e la misura di diversi dati fisiologici, come il battito cardiaco, il movimento degli occhi e la sudorazione, durante la visione dei video, viene misurata e valutata l'esperienza di visione dei video. A insaputa dei partecipanti, solo alcuni dei video mostrati sono reali, la restante parte è stata generata tramite IA. In questo capitolo affronteremo nel dettaglio come l'esperimento è stato disegnato e realizzato per ottenere i risultati migliori.
+
+\subsection{Disegno sperimentale}
+
+Per la somministrazione dei video reali e sintetici ai soggetti volontari, sono stati valutati due tipi di disegni sperimentali. Supponiamo di aver individuato un campione, ad esempio di 30 partecipanti, disposti a partecipare al nostro esperimento, e di avere una raccolta di video didattici, divisi fra reali e sintetici. Vogliamo garantire che i video reali e i video sintetici siano  visualizzati in modo equo tra tutti i partecipanti, ma come suddividere le acquisizioni? Si presentano subito due opzioni:
+
+\begin{enumerate}
+    \item Ogni partecipante visiona un solo video. I partecipanti vengono divisi in due gruppi, un gruppo visionerà i video reali e l'altro i video sintetici. Si tratta del disegno sperimentale \textit{between-subject}
+    \item Tutti i partecipanti visionano due video, uno reale e uno sintetico. Non vi è quindi una divisione in gruppi, si tratta del disegno sperimentale \textit{within-subject} 
+\end{enumerate}
+
+\subsubsection{Between Subject}
+
+Nel disegno between subject i partecipanti vengono suddivisi in due gruppi, e ogni partecipante prende visione di un solo video. Un partecipante vedrà un video reale se appartiene al gruppo dei video reali, e un partecipante vedrà un video sintetico se appartiene al gruppo dei video sintetici. Questo disegno sperimentale comporta delle acquisizioni molto veloci, in quanto ogni partecipante deve visionare un solo video, ma comporta alcuni dettagli tecnici.
+
+\paragraph{Dimensione del campione} Questo disegno sperimentale richiede un campione di dimensioni doppie rispetto al \textit{within-subject}. Dividendo il campione in due gruppi, se si vuole garantire che ogni tipo di video venga visionato $n$ volte, è necessario trovare un campione grande $2n$.
+
+\paragraph{Generalizzabilità dei risultati} Inoltre, questo disegno sperimentale richiede un campione di maggiori dimensioni per poter garantire la generalizzabilità dei risultati. Con questo disegno sperimentale per ogni partecipante valutiamo solo come questo reagisce a un contenuto reale, se appartiene al gruppo dei video reali, o a un contenuto sintetico, se questo appartiene al gruppo dei video sintetici. Per poter generalizzare i risultati, per cui, è necessario un campione di grandi dimensioni, così da poter eliminare le differenze tra i singoli individui, e poter trarre delle conclusioni generali.
+
+Un vantaggio, però, di cui si deve tener conto di questo disegno sperimentale, è che visionando un solo video lo spettatore non può avere influenze da altri video durante la visione, producendo i dati più puliti ed accurati.
+
+\subsubsection{Within Subject}
+
+Nel disegno within subject si elimina la suddivisione in gruppi, e a ogni partecipante sono mostrati due video. I due video mostrati sono sempre uno reale e uno sintetico. Secondo questo disegno le acquisizioni richiedono più tempo da parte dei partecipanti, ma così facendo, si dimezza la dimensione del campione richiesta, in quanto ogni partecipante vede entrambi i tipi di video, e inoltre riduce il problema della generalizzabilità. Mostrando ad ogni partecipante sia un video reale che un video sintetico, è possibile misurare come la stessa persona reagisce ai due contenuti di natura diversa. Questo è importante in quanto uno stesso video può avere effetti ben diversi su persone diverse (CITATION NEEDED). Questo permette di ottenere risultati generalizzabili prima. Al contrario del between-subject, però, visionando due video la percezione del secondo video potrebbe essere influenzata dal primo video.
+
+\subsubsection{La scelta}
+
+In luce di queste osservazioni, è stato scelto il design \textit{within-subject}. Ogni partecipante per cui visiona due video, di cui sempre uno reale e uno sintetico.
+
+\subsection{Variabili indipendenti}
+
+Stabilito il disegno sperimentale, sono state individuate le variabili dipendenti e indipendenti. Oltre alla natura del video (reale o sintetico), c'è da tenere conto anche del genere del docente, in quanto, per come già trovato da ... CITATION NEEDED .., il genere può avere un influenza sull'esperienza di visione dei video, a seconda dello spettatore, per cui dobbiamo tenerne conto, e assicurarci che nel corso dell'esperimento non vi sia una predominanza di un genere sull'altro nei video mostrati. Inoltre, dal momento che abbiamo bisogno di mostrare due video, e non possiamo certamente mostrare lo stesso video due volte (CITATION NEEDED), abbiamo bisogno di due contenuti diversi che i docenti andranno a trattare nei video. Riassumendo, le variabili indipendenti in gioco sono:
+\begin{itemize}
+    \item Tipo di contenuto:
+    \begin{itemize}
+        \item Contenuto A
+        \item Contenuto B
+    \end{itemize} 
+    \item Tipo di Presentatore:
+    \begin{itemize}
+        \item Reale (docente videoregistrato)
+        \item Sintetico (personaggio generato da AI)
+    \end{itemize}
+    \item Genere del Presentatore:
+    \begin{itemize}
+        \item Maschile
+        \item Femminile
+    \end{itemize}
+\end{itemize}
+
+\begin{table}[t]
+    \begin{tabular}{|r| p{1.9cm} p{1.51cm} p{1.75cm} p{1.9cm} p{1.5cm} p{1.91cm}| }
+        \hline
+        Partecipante & Contenuto Video 1 & Tipo Video 1 & Genere Video 1 & Contenuto Video 2 & Tipo Video 2 & Genere Video 2 \\ \hline
+        1 & A & Sintetico & Maschile & B & Reale & Femminile \\
+        \hline
+        2 & A & Reale & Maschile & B & Sintetico & Femminile \\
+        \hline
+        3 & B & Sintetico & Maschile & A & Reale & Femminile \\
+        \hline
+        4 & B & Reale & Maschile & A & Sintetico & Femminile \\
+        \hline
+        5 & A & Sintetico & Femminile & B & Reale & Maschile \\
+        \hline
+        6 & A & Reale & Femminile & B & Sintetico & Maschile \\
+        \hline
+        7 & B & Sintetico & Femminile & A & Reale & Maschile \\
+        \hline
+        8 & B & Reale & Femminile & A & Sintetico & Maschile \\ \hline
+        9 & A & Sintetico & Maschile & B & Reale & Femminile \\
+        \hline
+        10 & A & Reale & Maschile & B & Sintetico & Femminile \\
+        \hline
+        11 & B & Sintetico & Maschile & A & Reale & Femminile \\
+        \hline
+        12 & B & Reale & Maschile & A & Sintetico & Femminile \\
+        \hline
+        13 & A & Sintetico & Femminile & B & Reale & Maschile \\
+        \hline
+        14 & A & Reale & Femminile & B & Sintetico & Maschile \\
+        \hline
+        15 & B & Sintetico & Femminile & A & Reale & Maschile \\
+        \hline
+        16 & B & Reale & Femminile & A & Sintetico & Maschile \\ \hline
+    \end{tabular}
+    \centering
+    \caption{Matrice sperimentale (ipotizzando un campione di 16 partecipanti)}
+    \label{tab:matrice_sperimentale}
+\end{table}
+
+Ognuna di queste variabili valorizzate rappresenta un possibile video che un partecipante può visionare. Ad esempio, un assegnamento del tipo: $$Contenuto1 = A \ \wedge \ Tipo1 = Reale \ \wedge \ Genere1 = Maschile$$ rappresenta un video reale con un docente di genere maschile che espone il contenuto A. Sulla base di queste variabili andiamo a costruire una matrice sperimentale, ovvero una matrice che specifica, per ogni partecipante, il valore di ognuna di queste variabili per il primo e il secondo video che i partecipanti andranno a visionare durante l'esperimento, specificando quindi i due video che ogni partecipante andrà a visionare. Osserviamo che le tre variabili sono tutte e tre variabili binarie, ovvero possono assumere solo due valori. Questo ci permette di definire estremamente facilmente il vincolo che lega il primo e il secondo video: il secondo video sarà la negazione logica del primo, dove se $Contenuto1$, $Tipo1$, e $Genere1$ sono le variabili che specificano il contenuto, il tipo e il genere del primo video, per il secondo video le rispettive variabili assumeranno rispettivamente i valori $Contenuto2 = \overline{Contenuto1}$, $Tipo2 = \overline{Tipo1}$ e $Genere2 = \overline{Genere1}$. Per cui, ad esempio, sulla base dell'assegnamento indicato in precedenza, il secondo video sarebbe definito dai valori: $$Contenuto2 = B \ \wedge \ Tipo2 = Sintetico \ \wedge \ Genere2 = Femminile$$ Per ultimare la costruizione della matrice è sufficiente esplicitare tutte le possibili combinazioni di assegnamenti di queste tre variabili per il primo video, e ricavare i rispettivi valore per il secondo video per ogni combinazione. Esplicitando tutte le possibili combinazioni garantiamo che, con un campione abbastanza grande, tutti i casi possibili sono coperti e non vi sono combinazioni predominanti che potrebbero sbilanciare i dati raccolti. Osserviamo che le variabili sono tre, per cui il numero di possibili combinazioni è di $2^3 = 8$, per cui dopo 8 partecipanti la matrice si ripeterà. Si tratta quindi di una matrice periodica. È possibile vedere un'esempio di questa matrice in Tabella \ref{tab:matrice_sperimentale}, per un campione di 16 partecipanti. È possibile notare la periodicità della tabella, dove i valori delle variabili per i  partecipanti da 1 a 8 sono ripetuti per i partecipanti da 9 a 16. Si osservi che non è importante la combinazione di partenza, posto che il campione sia abbastanza grande da coprire tutte le possibili combinazioni. Per stabilire la dimensione del campione, infine, è sufficiente stabilire quante volte si desidera coprire tutte le combinazioni, e scegliere una dimensione appropriata. Ad esempio, se si vuole coprire tutti i casi possibili almeno 8 volte, servirà un campione di almeno $8 \cdot 8 = 8^2 = 64$ partecipanti.
+
+\subsection{Definizione dei questionari}
+
+I questionari sono stati definiti dal professore Andrea Gaggioli del dipartimento di Psicologia dell'Università Cattolica del Sacro Cuore.
+
+\subsubsection{Questionari pre-trattamento}
+
+Sono stati specificati dei questionari pre-trattamento, da somministrare ai partecipanti all'inizio dell'esperimento, prima della visione di qualsiasi video. Qui vengono raccolti semplici dati demografici come l'età, il genere, la nazionalità e il livello di istruzione di ogni partecipante, un questionario di autovalutazione del loro stato emotivo pre-trattamento, e una domanda sulla frequenza di utilizzo di contenuti video per l'apprendimento. Nello specifico, i questionari pre-trattamento consistono in, in questo ordine:
+
+\begin{itemize}
+    \item  Dati demografici (età, genere, nazionalità, livello di istruzione)
+    \item Questionario per valutare lo stato emotivo iniziale (Positive and Negative Affect Schedule - PANAS), che misura l’umore momentaneo
+    \item Scala sulla frequenza di utilizzo di contenuti video per l'apprendimento (ad es., lezioni online, tutorial, corsi su piattaforme digitali)?
+\end{itemize}
+
+\subsubsection{Questionari post-video}
+
+In seguito, sono previsti dei questionari a seguito di ognuno dei due video. I questionari post-video consistono in un'autovalutazione del proprio stato emotivo in seguito alla visione, delle domande su scala sulla percezione della qualità dell'apprendimento e delle domande su scala sulla valutazione del presentatore. Infine, è prevista una breve sessione di domande di comprensione a risposta multipla sui contenuti trattati, per misurare il grado di comprensione raggiunto. In un elenco puntato, i questionari post-video conistono in, in questo ordine:
+
+\begin{itemize}
+    \item Esperienza emotiva: Positive and Negative Affect Schedule (PANAS), per misurare i sentimenti positivi e negativi provati durante la videolezione
+    \item Percezione della qualità dell’apprendimento:
+        \begin{enumerate}
+            \item \textit{"Quanto hai trovato chiari i contenuti della lezione?"}(scala da 1 a 5)
+            \item \textit{"Quanto sono stati facili da comprendere i concetti presentati nella lezione?"} (scala da 1 a 5)
+            \item \textit{"Quanto hai trovato ben organizzata la presentazione dei contenuti?"} (scala da 1 a 5)
+            \item \textit{"Quanto pensi di aver appreso dai contenuti presentati?"} (scala da 1 a 5)
+            \item \textit{"Quanto ti senti sicuro/a di ricordare le informazioni apprese nella lezione?"} (scala da 1 a 5)
+            \item \textit{"Quanto ti senti preparato/a ad applicare i concetti appresi?"} (scala da 1 a 5)
+            \item \textit{"Quanto ritieni utile la lezione per il tuo apprendimento?"} (scala da 1 a 5)
+            \item \textit{"Quanto la lezione ha stimolato il tuo interesse per l’argomento?"} (scala da 1 a 5)
+            \item \textit{"Quanto ti senti motivato/a a saperne di più sull’argomento dopo aver visto la lezione?"} (scala da 1 a 5)
+        \end{enumerate}
+    \item Valutazione del presentatore
+        \begin{enumerate}
+            \item \textit{"Come descriveresti il modo di presentare del relatore?"} (scala da 1 a 5, dove 1 è "Molto impersonale" e 5 è "Molto coinvolgente")
+            \item \textit{"Quanto hai trovato efficace il relatore nella trasmissione dei contenuti?"} (scala da 1 a 5)
+            \item \textit{"Quanto ti è sembrato chiaro e sicuro il relatore durante la spiegazione?"} (scala da 1 a 5)
+            \item \textit{"Quanto ti sei sentito/a in sintonia con il relatore?"} (scala da 1 a 5)
+            \item \textit{"Quanto il presentatore ti è sembrato naturale e realistico nella presentazione dei contenuti?"} (scala da 1 a 5)
+        \end{enumerate}
+    \item Test di comprensione per valutare l’apprendimento oggettivo
+\end{itemize}
+
+I testi di comprensione per valutare l'apprendimento oggettivo consistono in un quiz da 3 domande a crocette, con 1 risposta giusta e 2 risposte sbagliate, sui contenuti trattati.
+
+% \subsection{Riassunto}
+
+% Per riassumere, il disegno è di tipo within-subjects, in cui ciascun partecipante visiona due video didattici:
+
+% \begin{itemize}
+%     \item Uno recitato da un docente maschio e uno da una docente femmina.
+%     \item  Uno in versione reale (docente videoregistrato) e uno in versione sintetica (generato dall'AI).
+% \end{itemize}
+% Le variabili indipendenti sono:
+
+% \begin{itemize}
+%     \item Tipo di contenuto:
+%     \begin{itemize}
+%         \item Contenuto A
+%         \item Contenuto B
+%     \end{itemize} 
+%     \item Tipo di Presentatore:
+%     \begin{itemize}
+%         \item Reale (docente videoregistrato)
+%         \item Sintetico (personaggio generato da AI)
+%     \end{itemize}
+%     \item Genere del Presentatore:
+%     \begin{itemize}
+%         \item Maschile
+%         \item Femminile
+%     \end{itemize}
+% \end{itemize}
+% Mentre le variabili dipendenti sono:
+
+% \begin{itemize}
+%     \item Esperienza emotiva durante la lezione (misurata con questionari psicometrici post-
+% sessione).
+%     \item Qualità dell’apprendimento (misurata con test di comprensione post-sessione).
+%     \item Eye tracking (misure di fissazione e sguardo).
+%     \item Frequenza cardiaca (per monitorare lo stato di attivazione fisiologica).
+%     \item Espressioni emotive facciali (analizzate tramite PyFeat).
+% \end{itemize}
+
 \section{Sviluppo dell'interfaccia}
 \section{Salvataggio dei dati raccolti}
 
