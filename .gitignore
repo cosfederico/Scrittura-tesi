@@ -5,3 +5,7 @@
 *.toc
 *.synctex.gz
 .vscode/
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
