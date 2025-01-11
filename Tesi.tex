@@ -1,17 +1,18 @@
 \documentclass[a4paper,12pt]{report}
 
 \usepackage[a4paper]{geometry}
+\usepackage[utf8]{inputenc}
 \usepackage{amssymb,amsmath,amsthm}
 \usepackage{graphicx}
 \usepackage{url}
-\usepackage[a-1b]{pdfx}
-\usepackage{hyperref}
 \usepackage{epsfig}
 \usepackage[italian]{babel}
 \usepackage{setspace}
 \usepackage{tesi}
 \usepackage{import}
-\usepackage[utf8]{inputenc}
+\usepackage[a-1b]{pdfx}
+\usepackage{hyperref}
+\usepackage{subcaption}
 
 \begin{document}
 % FRONTESPIZIO
@@ -20,22 +21,21 @@
 \dept{Corso di Laurea in Informatica (L-31)} 
 \anno{2023-2024}
 \matricola{977772}
-\relatore{Prof. Raffaella Lanzarotti}
-\correlatore{Prof. Andrea Gaggioli}
+\relatore{Raffaella Lanzarotti}
+\correlatore{Alessandro D'Amelio}
 
 % CORPO
 \import{Chapters/}{Preface.tex}
 \import{Chapters/}{Introduzione.tex}
-
 \import{Chapters/Capitolo1}{Capitolo1.tex}
 \import{Chapters/Capitolo2}{Capitolo2.tex}
 \import{Chapters/Capitolo3}{Capitolo3.tex}
 \import{Chapters/Capitolo4}{Capitolo4.tex}
-
 \import{Chapters/}{Conclusioni.tex}
-\import{Chapters/}{Bibliografia.tex}
+
+\phantomsection		% da usare insieme a addcontentsline altrimenti i bookmark nel pdf puntano alle pagine sbagliate
+\addcontentsline{toc}{chapter}{\bibname}
+\bibliographystyle{plain}
+\bibliography{bibliography.bib}
 \import{Chapters/}{Ringraziamenti.tex}
 \end{document}
-
-
- 
