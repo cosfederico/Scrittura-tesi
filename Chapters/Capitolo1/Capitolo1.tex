@@ -16,7 +16,7 @@ I criteri che sono stati valutati sono: la naturalezza dei movimenti generati, l
 
 \subsection{DupDub}
 
-DupDub si classifica come un prodotto "Talking-Photo". A partire da una fotografia di un persona, genera il movimento dei muscoli facciali e delle labbra per simulare il parlato. DupDub trova i suoi punti di forza nell'essere molto semplice, ma è stato valutato come troppo semplice per gli scopi di questa ricerca. La più grande limitazione è data dalla limitatezza dei movimenti, limitandosi appunto a generare solo i movimenti dei muscoli facciali, e a malapena movimenti della testa, rendendo il risultato finale poco convincente e innaturale. Permette facilmente la creazione di un avatar personalizzato, a partire da un soggetto noto, ma i movimenti sono stati valutati come molto limitati e innaturali, risultando non idoneo per questa ricerca.
+DupDub si classifica come un prodotto "Talking-Photo". DupDub trova i suoi punti di forza nell'essere molto semplice. Esso permette la creazione di un avatar personalizzato a partire da una sola fotografia di una persona. DupDub stato valutato come troppo impreciso per gli scopi di questa ricerca, limitandosi a generare solo i movimenti dei muscoli facciali e a malapena della testa, risultando non idoneo per questa ricerca.
 
 \subsection{Synthesia.io}
 
@@ -49,7 +49,7 @@ La piattaforma fornisce un catalogo di avatar e di modelli di voce già pronti p
 Per queste ragioni, tra le opzioni valutate, HeyGen è stato valutato come il più adatto, in termini di qualità e naturalezza dei risultati prodotti, ed è stato quindi scelto come soluzione per questa ricerca. Sono state valutate entrambe le opzioni offerte da HeyGen per la generazione dei video fake, i cui approcci vengono approfonditi nella prossima sezione. Un altro fattore che sicuramente ha giocato a suo favore è stato anche il piano offerto, il quale permette di generare infiniti video durante il periodo di abbonamento, posto che questi siano sotto i cinque minuti di durata.
 
 \subsubsection{Profilo dei video fake}
-Si delinea così il tipo di video che siamo in grado di generare: video raffiguranti una persona che parla, inquadrata a mezzo busto, privi di movimenti di macchina o cambi di inquadrature, e privi di animazioni o scritte che compaiono a corredo. Il video può essere a sfondo bianco (generazione con avatar forniti dalla piattaforma) o con uno sfondo reale (generazione con avatar personalizzato).
+ Il video che siamo interessati a generare ha le seguenti caratteristiche: un video raffigurante una persona che parla, inquadrata a mezzo busto, privi di movimenti di macchina o cambi di inquadrature, e privi di animazioni o scritte che compaiono a corredo. Il video può essere a sfondo bianco (generazione con avatar forniti dalla piattaforma) o con uno sfondo reale (generazione con avatar personalizzato).
 
 Viste le due possibili soluzioni per la generazione dei video fake, sono state valutate due soluzioni diverse per l'acquisizione dei video reali di riferimento:
 \begin{itemize}
@@ -91,7 +91,7 @@ I video individuati non corrispondevano tutti perfettamente alle specifiche rich
 
 \subsubsection{Trimming}
 
-Tutti i video individuati presentavano un introduzione e una coda al video, con musiche, scritte o elementi animati. I video individuati sono per cui stati tagliati, in modo da eliminare gli elementi non utili al nostro studio, e mantenere solamente la parte di video parlata. Per il trimming dei video è stato utilizzato il tool open source gratuito \verb|ffmpeg| (\url{https://www.ffmpeg.org}), così da favorire un'operazione veloce e priva di operazioni di re-econding ove possibile.
+Tutti i video individuati presentavano un introduzione e una coda al video, con musiche, scritte o elementi animati. I video individuati sono per cui stati tagliati, in modo da eliminare gli elementi non utili al nostro studio, e mantenere solamente la parte di video parlata. Per il trimming dei video è stato utilizzato il tool open source gratuito \verb|ffmpeg| (\url{https://www.ffmpeg.org}), così da favorire un'elaborazione veloce e priva di operazioni di re-econding ove possibile.
 
 \subsubsection{Pulizia dello sfondo}
 
@@ -237,7 +237,7 @@ Seppure entrambi i video sono privi di sfondo, non hanno cambi di inquadratura, 
 
 \subsubsection{La soluzione}
 
-Entrambi questi problemi trovano una soluzione comune: registrare dei video ad-hoc con attori. Registrando dei video è possibile avere il controllo sul livello di qualità, complessità e sull'argomento trattato nei contenuti esposti, scrivendo un copione preciso da seguire. Inoltre, è possibile fare uso degli avatar personalizzati, garantendo di avere lo stesso soggetto tra video real e video fake, poiché possiamo ottenere il consenso esplicito per la creazione degli avatar di chi si presta come soggetto per il video.
+Entrambi questi problemi trovano una soluzione comune: registrare dei video ad-hoc con attori. Così facendo, è possibile avere il controllo sul livello di qualità, complessità e sull'argomento trattato nei contenuti esposti, scrivendo un copione preciso da seguire. Inoltre, è possibile fare uso degli avatar personalizzati, garantendo di avere lo stesso soggetto tra video real e video fake, poiché possiamo ottenere il consenso esplicito per la creazione degli avatar di chi si presta come soggetto per il video.
 
 \subsection{Scrittura dei testi}
 
@@ -251,13 +251,13 @@ Sono stati cercati un uomo e una donna, di età simile, preferibilmente con già
 
 La ricerca è stata effettuata dal tesista della Cattolica Matteo Scarinzi all'interno del corpo docenti e dottorandi della facoltà di Psicologia della Cattolica, seguendo l'intuizione che docenti e dottorandi abbiano buona esperienza nell'esporre argomenti ad alta voce e parlare al pubblico. Sono stati individuati come attori:
 \begin{itemize}
-    \item Michele Paleologo, per la parte maschile, dottorando della facoltà di Psicologia dell'Università Cattolica del Sacro Cuore
-    \item Marta Pizzolante, per la parte femminile, dottoranda della facoltà di Psicologia dell'Università Cattolica del Sacro Cuore
+    \item Michele Paleologo, per la parte maschile, dottorando della facoltà di Psicologia dell'Università Cattolica del Sacro Cuore,
+    \item Marta Pizzolante, per la parte femminile, dottoranda della facoltà di Psicologia dell'Università Cattolica del Sacro Cuore.
 \end{itemize}
 
 \subsection{Acquisizione dei video}
 
-I video sono stati registrati presso la sede dell'Università Cattolica del Sacro Cuore in Via Buonarroti, 30 a Milano, nell'aula privata del Prof. Andrea Gaggioli, docente di Filosofia della Cattolica e collaboratore di questo progetto.
+I video sono stati registrati presso la sede dell'Università Cattolica del Sacro Cuore in Via Buonarroti, 30 a Milano, nell'aula privata del Prof. Andrea Gaggioli, docente di Psicologia della Cattolica e collaboratore di questo progetto.
 
 I video sono stati registrati con luce artificiale, così da avere il pieno controllo della luce in scena, e non dipendere dalle condizioni meteo, come il movimento delle nuvole e del sole per la quantità di luce presente in scena durante i video e tra un video e l'altro. Per compensare la luminosità ridotta delle luci della stanza è stata utilizzata una ring light\footnote{Lampada a forma di anello a luce bianca, molto luminosa, che permette attraverso la sua forma caratteristica di illuminare uniformemente il viso senza creare ombre dure sul volto.}, posta davanti la telecamera, così da illuminare gli attori.
 
@@ -292,11 +292,11 @@ Nonostante la capacità del servizio di generazione dei video fake di replicare 
 
 \subsubsection{Video di riferimento per la creazione degli avatar}
 
-Per la realizzazione dei video fake è stato registrato per ogni attore un video a parte, richiesto dalla piattaforma HeyGen per la creazione dell'avatar personalizzato (Instant Avatar). La piattaforma richiede un video di breve-media durata, 2-3 minuti, dove si può parlare di qualsiasi argomento. Il video è utilizzato come punto di partenza per creare l'avatar, estraendo da tale video l'aspetto del soggetto, dello sfondo, così come i movimenti del soggetto e il suono della sua voce. Tale video è stato registrato per ogni attore nello stesso identico setup, così che l'avatar realizzato fosse visivamente identico ai corrispettivi video reali. È stato necessario realizzare un video a parte poiché è richiesto dalla piattaforma HeyGen che in tale video vengano inserite frequenti pause tra una frase e l'altra. Questo porta a un flusso del discorso molto innaturale, non rendendo possibile adoperare i video reali per la realizzazione dell'avatar, richiedendo la registrazione di un video dedicato a parte. Tale video è stato processato allo stesso modo di tutti gli altri, così che fosse visivamente e qualitativamente uguale ai corrispettivi video reali.
+Per la realizzazione dei video fake è è stato innanzitutto realizzato un primo video richiesto, richiesto dalla piattaforma HeyGen, per la creazione dell'avatar personalizzato (Instant Avatar). La piattaforma richiede un video di breve-media durata, 2-3 minuti, dove si può parlare di qualsiasi argomento. Il video è utilizzato come punto di partenza per creare l'avatar, estraendo da tale video l'aspetto del soggetto, dello sfondo, così come i movimenti del soggetto e il suono della sua voce. Tale video è stato registrato per ogni attore nello stesso identico setup, così che l'avatar realizzato fosse visivamente identico ai corrispettivi video reali. In tale video vengono inserite frequenti pause tra una frase e l'altra, così da garantire un risultato naturale nella creazione dell'avatar, come richiesto dalla piattaforma. Questo porta a un flusso del discorso molto innaturale, non rendendo possibile adoperare i video reali per la realizzazione dell'avatar, richiedendo la registrazione di un video dedicato a parte. Tale video è stato processato allo stesso modo di tutti gli altri, così che fosse visivamente e qualitativamente uguale ai corrispettivi video reali.
 
 \subsection{Video processing}
 
-I video registrati sono stati processati per migliorare la qualità dell'immagine. Sono stati applicati un filtro di riduzione del rumore e un aumento della luminosità dell'immagine. Per l'elaborazione dei video è stato utilizzato il programma gratuito Da Vinci Resolve.
+I video registrati sono stati elaborati per migliorare la qualità dell'immagine. Sono stati applicati un filtro di riduzione del rumore e un aumento della luminosità dell'immagine. Per l'elaborazione dei video è stato utilizzato il programma gratuito Da Vinci Resolve.
 
 \subsubsection{Riduzione del rumore}
 
@@ -368,16 +368,16 @@ Per la creazione degli Instant Avatar, come già anticipato, è stato usato un v
     \item Durata di 2-5 minuti
     \item Frequenti pause tra una frase e l'altra
     \item Si può parlare di qualsiasi argomento, ma cercando di esagerare con le emozioni, così da donare espressività all'avatar
-    \item Uso di movimenti delle braccia generici, evitando gesti di indicazione
+    \item Uso di movimenti delle braccia generici, evitando gesti di indicazione.
 \end{itemize}
 
-I video di riferimento registrati sono venuti di circa 3 minuti. Caricato il video di riferimento, la piattaforma si occupa di tutto il resto, e in una decina di minuti l'avatar è pronto per essere utilizzato.
+I video di riferimento registrati hanno una durata di circa 3 minuti. Caricato il video di riferimento, la piattaforma si occupa di tutto il resto, e in una decina di minuti l'avatar è pronto per essere utilizzato.
 
 \subsubsection{Creazione dei video}
 
 La creazione dei video fake è a sua volta semplificata. Creati i due Instant Avatar associati ai due attori, sono stati presi i due testi, scritti dal tesista della Cattolica Matteo Scarinzi, e sono stati caricati sulla piattaforma per la generazione dei video. 
 
-Come già visto in \ref{sec:text_editing}, i testi sono stati separati in sezioni, così da introdurre naturalmente delle pause nel discorso generato. Inoltre, è stata aggiunta della punteggiatura aggiuntiva e sono state modificate alcune parole dei testi, esplicitandone l'accento, in modo da correggere alcuni problemi di intonazione e pronuncia che gli avatar hanno incontrato durante la generazione del testo. Ad esempio, la parola "prosodia" è stata scritta esplicitando l'accento, "prosodìa", così da correggerne la pronuncia, dal momento che la voce generata pronunciava la parola con l'accento sbagliato. La qualità e la precisione dell'intonazione del discorso generato dipendono fortemente dal discorso di riferimento che è stato utilizzato per la generazione dell'avatar. Seguendo l'esempio precedente, è evidente che i modelli di voce generati sono stati generati da un discorso che non conteneva la parola "prosodia" al suo interno, lasciando al modello il compito di ricavarne la pronuncia, non garantendo ricavi quella corretta, rendendo necessario la specifica a mano in caso di errore.
+Come già visto nel Paragrafo \ref{sec:text_editing}, i testi sono stati separati in sezioni, così da introdurre naturalmente delle pause nel discorso generato. Inoltre, è stata aggiunta della punteggiatura aggiuntiva e sono state modificate alcune parole dei testi, esplicitandone l'accento, in modo da correggere alcuni problemi di intonazione e pronuncia che gli avatar hanno incontrato durante la generazione del testo. Ad esempio, la parola "prosodia" è stata scritta esplicitando l'accento, "prosodìa", così da correggerne la pronuncia, dal momento che la voce generata pronunciava la parola con l'accento sbagliato. La qualità e la precisione dell'intonazione del discorso generato dipendono fortemente dal discorso di riferimento che è stato utilizzato per la generazione dell'avatar. Seguendo l'esempio precedente, è evidente che i modelli di voce generati sono stati generati da un discorso che non conteneva la parola "prosodia" al suo interno, lasciando al modello il compito di ricavarne la pronuncia, non garantendo ricavi quella corretta, rendendo necessario la specifica a mano in caso di errore.
 
 \subsubsection{Download del risultato}
 
@@ -387,8 +387,8 @@ Sono stati realizzati un video fake per ogni attore (maschio e femmina), e per o
 
 In questa sezione analizziamo i pro e i contro dei due approcci valutati per la generazione dei video:
 \begin{itemize}
-    \item Video generati da video scaricati dal web (\ref{sec:generati_dal_web})
-    \item Video generati con attori (\ref{sec:generati_con_attori})
+    \item Video generati da video scaricati dal web (seguendo la procedura descritta nel Paragrafo \ref{sec:generati_dal_web})
+    \item Video generati con attori (come sopra \ref{sec:generati_con_attori})
 \end{itemize}
 
 \subsection{Video generati da video scaricati dal web}
@@ -400,7 +400,7 @@ Questo approccio è consistito nel trovare dei video validi da utilizzare come v
 \begin{itemize}
     \item Non è necessario scrivere dei testi appositi
     \item Non è necessario registrare da sé dei video, per cui non serve cercare attori, recuperare l'attrezzatura necessaria, e investire il tempo richiesto per la registrazione e la produzione dei video registrati
-    \item Ottenimento dei video reali veloce
+    \item Ottenimento dei video reali veloce.
 \end{itemize}
 
 \subsubsection{Contro}
@@ -409,7 +409,7 @@ Questo approccio è consistito nel trovare dei video validi da utilizzare come v
     \item Non si ha controllo sulla qualità, argomento, lunghezza e complessità del contenuto esposto
     \item La ricerca dei video può richiedere tempo e fornire risultati insoddisfacenti a seconda dei criteri di selezione richiesti e la disponibilità della piattaforma di ricerca video utilizzata
     \item I video reali e fake presentano soggetti diversi, che dipendono dagli avatar forniti dalla piattaforma scelta, il che può influenzare l'esperienza visiva introducendo una variabile esterna indesiderata
-    \item Creazione dei video fake più lenta, vista la necessità di selezione dell'avatar e della voce più adatti
+    \item Creazione dei video fake più lenta, vista la necessità di selezione dell'avatar e della voce più adatti.
 \end{itemize}
 
 \subsection{Video generati con attori}
@@ -421,14 +421,14 @@ Questo approccio è consistito nella scrittura dei testi da esporre, la ricerca 
 \begin{itemize}
     \item I video reali e fake sono visivamente identici, eliminando qualsiasi variabile esterna, e l'unica differenza tra i due video è la loro natura (reale o fittizia)
     \item Si ha il totale controllo sul contenuto esposto, in termini di qualità, complessità, lunghezza e argomento, essendo questo scritto appositamente
-    \item Generazione dei video fake molto più veloce, in quanto non serve selezionare l'avatar e la voce più adatta, essendo l'aspetto e la voce clonati dalla piattaforma di generazione dei video
+    \item Generazione dei video fake molto più veloce, in quanto non serve selezionare l'avatar e la voce più adatta, essendo l'aspetto e la voce clonati dalla piattaforma di generazione dei video.
 \end{itemize}
 
 \subsubsection{Contro}
 
 \begin{itemize}
     \item Acquisizione dei video reali molto più lenta, in quanto richiede la scrittura dei contenuti, la ricerca di attori per la registrazione dei video, e la registrazione e post-produzione dei video stessi
-    \item La qualità dei video fake realizzati dipende dalla qualità dei video registrati, in termini di qualità video/audio e in termini di qualità dell'avatar personalizzato creato
+    \item La qualità dei video fake realizzati dipende dalla qualità dei video registrati, in termini di qualità video/audio e in termini di qualità dell'avatar personalizzato creato.
 \end{itemize}
 
 \subsection{La scelta}
