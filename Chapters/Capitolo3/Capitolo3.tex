@@ -159,55 +159,66 @@ I testi di comprensione per valutare l'apprendimento oggettivo consistono in un 
 
 \subsection{Dati fisiologici, Eye-tracker, FaceReader}
 
-\subsection{Procedura sperimentale}
+Per la cattura e il monitoraggio delle variabili dipendenti durante l'esperimento quali il battito cardiaco, la sudorazione, il movimento dello sguardo e le espressioni facciali, sono stati predisposti diversi strumenti di cattura.
 
-Durante lo svolgimento dell'esperimento, i partecipanti vengono accolti, e viene richiesta la firma del consenso informato. I partecipanti non sono informati della natura reale o sintetica dei personaggi nei video per evitare bias sui dati raccolti.
+\subsubsection{Dati fisiologici}
 
-Preparazione delle misure fisiologiche:
-- Battito cardiaco e sudorazione: Applicazione del sensore.
-- Eye tracking: Calibrazione delle misure oculari.
-- Espressioni facciali: Posizionamento della videocamera per il monitoraggio delle espressioni facciali.
+Per la cattura dei dati fisiologici, ovvero il battito cardiaco e il livello di sudorazione della pelle, è stato predisposto un braccialetto Embrace Plus di Empatica Inc., indossato sul polso della mano non dominante di ogni partecipante. Il braccialetto permette di misurare non intrusivamente i segnali che ci interessano. Tra questi, il livello di sudorazione della pelle, detto anche Electrodermal Activity (EDA), è particolarmente importante, in quanto questo è fortemente collegato ai livelli di stress, tensione e reazione emotiva, specie durante l'apprendimento \cite{di2018electrodermal}\cite{tinga2020neurophysiology}. Per assicurarsi una lettura accurata dei dati richiesti, i partecipanti sono richiesti di indossare il braccialetto per 5-10 minuti prima dell'inizio dell'esperimento, affinché la pelle del partecipante possa abituarsi al contatto con il sensore, e fornire una lettura accurata dei livelli di sudorazione, come indicato dai manuali d'uso di Empatica. Il braccialetto è configurato e abilitato via applicazione via smartphone, e i dati sono salvati su un server Amazon AWS, da cui è possibile scaricare offline in qualsiasi momento tutti i dati raccolti.
 
-Ogni partecipante visiona due video con contenuti diversi. Ciascun contenuto è presentato in una combinazione unica di caratteristiche: un
-contenuto sarà presentato da un docente maschile e l’altro da una docente femminile, uno sarà in versione reale e l’altro in versione sintetica. Il controbilanciamento copre anche l'ordine tra contenuto, genere e tipo di presentatore. Al termine, i partecipanti sono informati sui veri scopi dell’esperimento e sull’utilizzo dei dati raccolti.
+\subsubsection{Eye-tracker}
 
-% \subsection{Riassunto}
+Per il tracciamento dello sguardo e la misura delle fissazioni è utilizzato l'eye-tracker EyeLink 1000, di SR Research Ltd. Per l'utilizzo dell'eye-tracker è prevista una fase di calibrazione, svolta manualmente da un operatore, insieme al partecipante, prima di avviare l'esperimento. In seguito, l'eye-tracker è pilotato dal computer che guida il partecipante attraverso l'esperimento, per cui il tracciamento e il salvataggio dei dati raccolti è automatico.
 
-% Per riassumere, il disegno è di tipo within-subjects, in cui ciascun partecipante visiona due video didattici:
+\subsubsection{Espressioni facciali}
 
-% \begin{itemize}
-%     \item Uno recitato da un docente maschio e uno da una docente femmina.
-%     \item  Uno in versione reale (docente videoregistrato) e uno in versione sintetica (generato dall'AI).
-% \end{itemize}
-% Le variabili indipendenti sono:
+Per catturare le espressioni facciali, il partecipante viene registrato per tutta la durata dell'esperimento, previo consenso esplicito, tramite webcam posta sullo schermo sul quale vengono visualizzati i video. In seguito, le espressioni facciali e le emozioni associate vengono estratte dal video registrato utilizzando la libreria di python PyFeat.
+Come trovato da \cite{whitehill2014faces}\cite{zhang2020face}, le espressioni facciali, e le relative emozioni, sono un buon indicatore del livello di interesse e coinvolgimento di uno studente durante l'apprendimento.
 
-% \begin{itemize}
-%     \item Tipo di contenuto:
-%     \begin{itemize}
-%         \item Contenuto A
-%         \item Contenuto B
-%     \end{itemize} 
-%     \item Tipo di Presentatore:
-%     \begin{itemize}
-%         \item Reale (docente videoregistrato)
-%         \item Sintetico (personaggio generato da AI)
-%     \end{itemize}
-%     \item Genere del Presentatore:
-%     \begin{itemize}
-%         \item Maschile
-%         \item Femminile
-%     \end{itemize}
-% \end{itemize}
-% Mentre le variabili dipendenti sono:
+\subsection{Riassunto}
 
-% \begin{itemize}
-%     \item Esperienza emotiva durante la lezione (misurata con questionari psicometrici post-
-% sessione).
-%     \item Qualità dell’apprendimento (misurata con test di comprensione post-sessione).
-%     \item Eye tracking (misure di fissazione e sguardo).
-%     \item Frequenza cardiaca (per monitorare lo stato di attivazione fisiologica).
-%     \item Espressioni emotive facciali (analizzate tramite PyFeat).
-% \end{itemize}
+Per riassumere, il disegno è di tipo \textit{within-subjects}. Ciascun partecipante visiona due video didattici:
+
+\begin{itemize}
+    \item Uno recitato da un docente maschio e uno da una docente femmina.
+    \item  Uno in versione reale (docente videoregistrato) e uno in versione sintetica (generato dall'AI).
+\end{itemize}
+Le variabili indipendenti sono:
+
+\begin{itemize}
+    \item Tipo di contenuto:
+    \begin{itemize}
+        \item Contenuto A
+        \item Contenuto B
+    \end{itemize} 
+    \item Tipo di Presentatore:
+    \begin{itemize}
+        \item Reale (docente videoregistrato)
+        \item Sintetico (personaggio generato da AI)
+    \end{itemize}
+    \item Genere del Presentatore:
+    \begin{itemize}
+        \item Maschile
+        \item Femminile
+    \end{itemize}
+\end{itemize}
+Mentre le variabili dipendenti sono:
+
+\begin{itemize}
+    \item Esperienza emotiva durante la lezione (misurata con questionari psicometrici post-sessione).
+    \item Qualità dell’apprendimento (misurata con test di comprensione post-sessione).
+    \item Eye tracking (misure di fissazione e sguardo).
+    \item Frequenza cardiaca e sudorazione (misurate con braccialetto munito di sensore).
+    \item Espressioni emotive facciali (analizzate tramite registrazione della webcam ed estratte con la libreria Python PyFeat).
+\end{itemize}
+
+Prima di cominciare, i partecipanti vengono accolti, e viene richiesta la firma del consenso informato sulla cattura di tutti dati sopra indicati. I partecipanti non sono informati della natura reale o sintetica dei personaggi nei video, per evitare bias sui dati raccolti. Prima di avviare l'esperimento, è previdta la preparazione delle misure fisiologiche:
+\begin{itemize}
+    \item Battito cardiaco e sudorazione: Applicazione del braccialetto.
+    \item Eye tracking: Calibrazione delle misure oculari.
+    \item Espressioni facciali: Posizionamento della videocamera per il monitoraggio delle espressioni facciali.
+\end{itemize}
+
+Ogni partecipante visiona due video con contenuti diversi. Ciascun contenuto è presentato in una combinazione unica di caratteristiche: un contenuto sarà presentato da un docente maschile e l’altro da una docente femminile, uno sarà in versione reale e l’altro in versione sintetica. Il controbilanciamento copre anche l'ordine tra contenuto, genere e tipo di presentatore. Al termine, i partecipanti sono informati sui veri scopi dell’esperimento e sull’utilizzo dei dati raccolti.
 
 \section{Sviluppo dell'interfaccia}
 \section{Salvataggio dei dati raccolti}
