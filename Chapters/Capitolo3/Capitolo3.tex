@@ -100,7 +100,7 @@ Ogni possibile combinazione di assegnamenti di queste tre variabili rappresenta 
 
 \subsection{Variabili dipendenti}
 
-In un esperimento, una variabile dipendente è una variabile che viene osservata e misurata, per studiare l'effetto causato da variazioni alle variabile indipendenti su tale variabile. Nel nostro caso, si tratta di cosa può influenzare in uno spettatore la natura sintetica di un video. Le variabili dipendenti identificate sono:
+In un esperimento, una variabile dipendente è una variabile che viene osservata e misurata, per studiare l'effetto che variazioni alle variabili indipendenti hanno su tale variabile. Nel nostro caso, si tratta di ciò che ci aspettiamo possa essere influenzato in uno spettatore dalla natura sintetica di un video. Le variabili dipendenti identificate sono:
 
 \begin{itemize}
     \item Esperienza emotiva durante la lezione (misurata con questionari psicometrici post-sessione)
@@ -110,7 +110,7 @@ In un esperimento, una variabile dipendente è una variabile che viene osservata
     \item Espressioni emotive facciali (monitorate tramite registrazione della webcam)
 \end{itemize}
 
-Per la misurazione delle prime due variabili è stato necessario definire i questionari da somministrare durante l'esperimento.
+Le ragioni dietro le prime due variabili dipendenti sono banali: vogliamo misurare come l'utilizzo di video sintetici piuttosto che reali possa alterare l'esperienza emotiva e la qualità dell'apprendimento in uno studente. Questi sono due aspetti fondamentali da studiare, se la comprensione o il coinvolgimento emotivo vengono meno utilizzando video artificiali questo vanifica il senso di utilizzarli. Per poter misurare queste due variabili sono stati definiti dei questionari di autovalutazione emotiva, di valutazione e di apprendimento, da somministrare durante l'esperimento.
 
 \subsection{Definizione dei questionari}
 
@@ -157,22 +157,27 @@ In seguito, sono previsti dei questionari a seguito di ognuno dei due video. I q
 
 I testi di comprensione per valutare l'apprendimento oggettivo consistono in un quiz da 3 domande a crocette, con 1 risposta giusta e 2 risposte sbagliate, sui contenuti trattati.
 
-\subsection{Dati fisiologici, Eye-tracker, FaceReader}
+\subsection{Dati fisiologici, sguardo, espressioni facciali}
 
-Per la cattura e il monitoraggio delle variabili dipendenti durante l'esperimento quali il battito cardiaco, la sudorazione, il movimento dello sguardo e le espressioni facciali, sono stati predisposti diversi strumenti di cattura.
+Le altre tre variabili dipendenti sono meno ovvie, e richiedono una breve sezione sul perché è stato valutato importante misurarle, e in seguito come sono state misurate.
 
 \subsubsection{Dati fisiologici}
 
-Per la cattura dei dati fisiologici, ovvero il battito cardiaco e il livello di sudorazione della pelle, è stato predisposto un braccialetto Embrace Plus di Empatica Inc., indossato sul polso della mano non dominante di ogni partecipante. Il braccialetto permette di misurare non intrusivamente i segnali che ci interessano. Tra questi, il livello di sudorazione della pelle, detto anche Electrodermal Activity (EDA), è particolarmente importante, in quanto questo è fortemente collegato ai livelli di stress, tensione e reazione emotiva, specie durante l'apprendimento \cite{di2018electrodermal}\cite{tinga2020neurophysiology}. Per assicurarsi una lettura accurata dei dati richiesti, i partecipanti sono richiesti di indossare il braccialetto per 5-10 minuti prima dell'inizio dell'esperimento, affinché la pelle del partecipante possa abituarsi al contatto con il sensore, e fornire una lettura accurata dei livelli di sudorazione, come indicato dai manuali d'uso di Empatica. Il braccialetto è configurato e abilitato via applicazione via smartphone, e i dati sono salvati su un server Amazon AWS, da cui è possibile scaricare offline in qualsiasi momento tutti i dati raccolti.
+Il nostro corpo è in uno stato di costante reazione agli stimoli proposti. Oltre quello che percepiamo, valori come il battito cardiaco, il ritmo respiratorio, il livello di sudorazione della pelle sono fortemente influenzati dalle nostre emozioni e dagli stimoli visivi (e in particolar modo anche sonori \cite{pitchforth2010auditorystimuli}) che ci sono presentati \cite{gunaratne2019visualstimuli}. A partire da questi è quindi possibile studiare le risposte emotive associate agli stimoli presentati, nel nostro caso i video reali o sintetici. Tra questi, il livello di sudorazione della pelle, detto anche Electrodermal Activity (EDA), è particolarmente utile, in quanto questo è fortemente collegato ai livelli di stress, tensione e reazione emotiva, specie durante l'apprendimento \cite{di2018electrodermal}\cite{tinga2020neurophysiology}, e tende a essere fortemente reattivo.
+
+Per la cattura dei dati fisiologici è stato predisposto un braccialetto Embrace Plus di Empatica Inc., indossato sul polso della mano non dominante di ogni partecipante. Il braccialetto permette di misurare non intrusivamente i segnali che ci interessano, quali battito cardiaco e livello di sudorazione della pelle. Per assicurarsi una lettura accurata dei dati richiesti, i partecipanti sono richiesti di indossare il braccialetto per 5-10 minuti prima dell'inizio dell'esperimento, affinché la pelle del partecipante possa abituarsi al contatto con il sensore, come indicato dai manuali d'uso di Empatica. Il braccialetto è configurato e abilitato via applicazione via smartphone, e i dati sono salvati su un server Amazon AWS, da cui è possibile scaricare offline in qualsiasi momento tutti i dati raccolti.
 
 \subsubsection{Eye-tracker}
 
-Per il tracciamento dello sguardo e la misura delle fissazioni è utilizzato l'eye-tracker EyeLink 1000, di SR Research Ltd. Per l'utilizzo dell'eye-tracker è prevista una fase di calibrazione, svolta manualmente da un operatore, insieme al partecipante, prima di avviare l'esperimento. In seguito, l'eye-tracker è pilotato dal computer che guida il partecipante attraverso l'esperimento, per cui il tracciamento e il salvataggio dei dati raccolti è automatico.
+I motivi per cui è di nostro interesse misurare e tracciare il movimento dello sguardo sono molteplici: innanzitutto, vista la presenza di video realizzati tramite IA, questo ci permette di  identificare eventuali elementi di distrazione che potrebbero essere presenti in tali video, dovuti a possibili artefatti o imperfezioni nei video generati. Vista la natura ancora in via di sviluppo di questa tecnologia, un dettaglio sul viso del presentatore, il movimento o l'aspetto delle mani, per fare qualche esempio, potrebbero essere elementi di distrazione\footnote{Si osservi che non è necessariamente detto che queste distrazioni comportino un ostacolo nell'apprendimento, potrebbe evincersi dai risultati di questo studio che nonostante le fissazioni, dovessero essercene, i partecipanti non abbiano avuto problemi di comprensione. Questo arricchisce ancora di più l'importanza e l'utilità di questa variabile in questo studio}. Inoltre, la misura delle fissazioni e del movimento dello sguardo possono essere ulteriori indicazioni del grado di coinvolgimento emotivo e del grado di attenzione dei partecipanti verso il video proposto \cite{kar2020eyegazemooc}\cite{liu2019eyegazeemotion}. 
+
+Per il tracciamento dello sguardo e la misura delle fissazioni è utilizzato l'eye-tracker EyeLink 1000, di SR Research Ltd. Questo eye-tracker permette di ottenere, con un sample rate di fino a 1000 campioni al secondo, la posizione dello sguardo sullo schermo ad ogni istante e il diametro della pupilla. Per l'utilizzo dell'eye-tracker è prevista una fase di calibrazione, svolta manualmente da un operatore, insieme al partecipante, prima di avviare l'esperimento. In seguito, l'eye-tracker è pilotato dal computer che guida il partecipante attraverso l'esperimento, per cui il tracciamento e il salvataggio dei dati raccolti è automatico.
 
 \subsubsection{Espressioni facciali}
 
-Per catturare le espressioni facciali, il partecipante viene registrato per tutta la durata dell'esperimento, previo consenso esplicito, tramite webcam posta sullo schermo sul quale vengono visualizzati i video. In seguito, le espressioni facciali e le emozioni associate vengono estratte dal video registrato utilizzando la libreria di python PyFeat.
 Come trovato da \cite{whitehill2014faces}\cite{zhang2020face}, le espressioni facciali, e le relative emozioni, sono un buon indicatore del livello di interesse e coinvolgimento di uno studente durante l'apprendimento.
+
+Per catturare le espressioni facciali, il partecipante viene registrato per tutta la durata dell'esperimento, previo consenso esplicito, tramite webcam, posta sullo schermo sul quale vengono visualizzati i video. In seguito, le espressioni facciali e le emozioni associate sono estratte dal video registrato utilizzando la libreria di python PyFeat.
 
 \subsection{Riepilogo}
 
@@ -221,6 +226,20 @@ Prima di cominciare, i partecipanti vengono accolti, e viene richiesta la firma 
 Ogni partecipante visiona due video con contenuti diversi. Ciascun contenuto è presentato in una combinazione unica di caratteristiche: un contenuto sarà presentato da un docente maschile e l’altro da una docente femminile, uno sarà in versione reale e l’altro in versione sintetica. Il controbilanciamento copre anche l'ordine tra contenuto, genere e tipo di presentatore. Al termine, i partecipanti sono informati sui veri scopi dell’esperimento e sull’utilizzo dei dati raccolti.
 
 \section{Sviluppo dell'interfaccia}
+
+Per facilitare la fase di sperimentazione e raccolta dei dati è stato predisposto lo sviluppo di un interfaccia che guida il partecipante attraverso l'esperimento. L'interfaccia mostra i video previsti dal protocollo per tale partecipante, somministra i questionari definiti, e gestisce la cattura, il salvataggio e la sincronizzazione di tutti i dati necessari, interfacciandosi con eye-tracker e braccialetto Empatica. L'interfaccia è stata sviluppata in Python, per mantenere il programma cross-platform, non essendo sicuri a monte del sistema operativo su cui si sarebbe fatto girare l'applicativo in fase di sperimentazione. L'interfaccia è stata sviluppata utilizzando la libreria di interfaccia grafica PyQt5.
+
+\subsection{Design di sviluppo}
+
+L'interfaccia è stata disegnata per essere controllata autonomamente dal partecipante. Una volta eseguita la calibrazione dell'eye-tracker (che deve essere svolta manualmente da un operatore), è il partecipante, interagendo solo con il mouse, a dirigere l'esperimento, inserendo i propri dati e rispondendo alle domande proposte.
+
+\begin{figure}[t]
+    \centering
+    \frame{\includegraphics[width=\linewidth]{images/welcome_screen_interfaccia}}
+    \caption{Schermata di benvenuto dell'interfaccia sviluppata.}
+    \label{fig:welcome_screen_interfaccia}
+\end{figure}
+
 \section{Salvataggio dei dati raccolti}
 
 \clearpage
