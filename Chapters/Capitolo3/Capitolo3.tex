@@ -227,11 +227,35 @@ Ogni partecipante visiona due video con contenuti diversi. Ciascun contenuto è 
 
 \section{Sviluppo dell'interfaccia}
 
-Per facilitare la fase di sperimentazione e raccolta dei dati è stato predisposto lo sviluppo di un interfaccia che guida il partecipante attraverso l'esperimento. L'interfaccia mostra i video previsti dal protocollo per tale partecipante, somministra i questionari definiti, e gestisce la cattura, il salvataggio e la sincronizzazione di tutti i dati necessari, interfacciandosi con eye-tracker e braccialetto Empatica. L'interfaccia è stata sviluppata in Python, per mantenere il programma cross-platform, non essendo sicuri a monte del sistema operativo su cui si sarebbe fatto girare l'applicativo in fase di sperimentazione. L'interfaccia è stata sviluppata utilizzando la libreria di interfaccia grafica PyQt5.
+Per facilitare la fase di sperimentazione e raccolta dei dati è stato predisposto lo sviluppo di un interfaccia che guida il partecipante attraverso l'esperimento. L'interfaccia mostra i video previsti dal protocollo per tale partecipante, somministra i questionari definiti, e gestisce la cattura, il salvataggio e la sincronizzazione di tutti i segnali e i dati necessari, interfacciandosi con eye-tracker e braccialetto Empatica. L'interfaccia è stata sviluppata in Python, per mantenere il programma cross-platform, non essendo sicuri a monte del sistema operativo su cui si sarebbe fatto girare l'applicativo in fase di sperimentazione. L'interfaccia è stata sviluppata utilizzando la libreria di interfaccia grafica PyQt5. Il codice prodotto è reperibile al seguente link: \url{https://github.com/cosfederico/Interfaccia-Tesi/}.
 
 \subsection{Design di sviluppo}
 
-L'interfaccia è stata disegnata per essere controllata autonomamente dal partecipante. Una volta eseguita la calibrazione dell'eye-tracker (che deve essere svolta manualmente da un operatore), è il partecipante, interagendo solo con il mouse, a dirigere l'esperimento, inserendo i propri dati e rispondendo alle domande proposte.
+L'interfaccia è stata disegnata per essere controllata autonomamente dal partecipante. Una volta eseguita la calibrazione dell'eye-tracker (che deve essere svolta manualmente da un operatore), il partecipante è in grado di svolgere autonomamente l'esperimento, inserendo i propri dati e rispondendo alle domande proposte. Tutte le domande sono poste su una scala da 1 a 5, o in modalità a risposta multipla per le domande di comprensione, per cui il partecipante ha bisogno solo del mouse per interagire con l'interfaccia. È stato molto importante rendere l'interfaccia compatibile a un utilizzo a una sola mano, poiché su uno dei due polsi del partecipante (il polso della mano non dominante) è indossato il braccialetto Empatica per la misura del battito cardiaco e il livello di sudorazione. È caldamente consigliato da Empatica evitare di muovere tale polso per ottenere i risultati più accurati, per questo motivo è stata fatta tale scelta di design.
+
+\subsection{Avvio dell'esperimento}
+
+L'interfaccia è stata arricchita di alcune funzionalità per la "qualità della vita" dello sperimentatore. Prima di cominciare con l'esperimento viene aperta una finestra di preparazione, dove è possibile selezionare tra tutte le webcam attive sul sistema quale utilizzare per la registrazione del video, ed è presente un pulsante per effettuare una prova del sistema audio, per assicurarsi di avere selezionato l'uscita audio corretta (Figura \ref{fig:webcam_selection_screen}). A seguire, è visualizzata una finestra di anteprima della webcam selezionata. In sovra-impressione all'anteprima della webcam è posta una figura stilizzata per indicare il posizionamento ottimale della persona e del volto nell'inquadratura, per l'analisi ottimale delle espressioni facciali (Figura \ref{fig:webcam_preview_screen}). Terminata la fase di preparazione, viene lanciato il programma principale, dove il partecipante è accolto nella schermata di introduzione (Figura \ref{fig:welcome_screen_interfaccia}), dove è informato sui dettagli dell'esperimento, quali durata, dati e segnali raccolti, e accorgimenti sull'utilizzo del mouse. Qui, il partecipante ha la possibilità di esprimere il suo consenso informato, tramite checkbox, e avviare l'esperimento, altrimenti uscire e abbandonare l'esperimento. L'avvio della registrazione di tutti i dati e segnali avviene solo una volta che il partecipante ha espresso il suo consenso e premuto il pulsante "Inizia". A partire da quel momento, l'esperimento è ufficialmente iniziato.
+
+\begin{figure}[t]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \frame{\includegraphics[width=\linewidth]{images/webcam_selection_screen}}
+        \caption{}
+        \label{fig:webcam_selection_screen}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \frame{\includegraphics[width=0.55\linewidth]{images/webcam_preview_screen}}
+        \caption{}
+        \label{fig:webcam_preview_screen}
+    \end{subfigure}
+    \hfill
+    \caption{Schermate di preparazione dell'interfaccia sviluppata: (a) Schermata di selezione della webcam. (b) Schermata di anteprima della webcam, con figura in sovra-impressione per il posizionamento ottimale del volto.}
+    \label{fig:interfaccia_setup_windows}
+\end{figure}
 
 \begin{figure}[t]
     \centering
@@ -240,6 +264,61 @@ L'interfaccia è stata disegnata per essere controllata autonomamente dal partec
     \label{fig:welcome_screen_interfaccia}
 \end{figure}
 
+\subsection{Raccolta dei timestamp}
+
+L'interfaccia tiene traccia di tutti i timestamp degli eventi principali, per permettere la sincronizzazione dei dati e dei segnali raccolti, e per poter associare i dati agli eventi di interazione del partecipante con l'interfaccia. Tutta l'interfaccia è stata disegnata a pagine: ogni volta che il partecipante passa alla pagina successiva viene salvato il timestamp di tale evento. In questo modo, sono salvati i timestamp di inizio sessione, fine sessione, inizio e fine di ogni video visualizzato, e i timestamp di risposta ad ogni domanda dei questionari presentati. I questionari sono stati disegnati in modo da presentare una domanda alla volta per pagina\footnote{Fatta eccezione per il questionario di autovalutazione dello stato emotivo (Positive and Negative Affect Schedule, PANAS), il quale è presentato in una pagina sola, e di questo è salvato solo il timestamp di inizio e fine di tutto il questionario.}. Quando il partecipante passa alla domanda successiva, viene salvato il timestamp di tale evento. Questo ci permette non solo di sapere quando il partecipante è passato alla domanda successiva, ma anche quanto tempo questi ha impiegato per rispondere alla domanda proposta, sottraendo il timestamp salvato con il precedente. Trattandosi di domande a risposta chiusa (da 1 a 5, o a risposta multipla) non è un problema considerare il tempo di digitazione della risposta, in quanto per rispondere basta un click. I timestamp sono salvati in UNIX-time, rispetto al fuso orario UTC (Coordinated Universal Time).
+
+\subsection{Registrazione della webcam/dello schermo}
+
+Durante tutta la durata dell'esperimento, l'interfaccia si occupa della registrazione della webcam selezionata per l'estrazione delle espressioni facciali, e della registrazione dello schermo. Le registrazioni sono eseguite su due processi paralleli al processo principale di generazione della GUI. Questo permette di non rallentare l'interfaccia grafica e permette una registrazione di entrambi i video più fluida, riducendo di molto il rischio di fotogrammi persi.
+
+\subsubsection{Registrazione dello schermo}
+
+La registrazione dello schermo è necessaria per l'utilizzo dei dati di eye-tracking, in quanto rappresenta gli stimoli presentati. Combinando i dati di eye-tracking e la registrazione dello schermo è possibile analizzare il movimento dello sguardo e le fissazioni, associando ad ogni sguardo e fissazione lo stimolo sullo schermo che lo ha stimolato.
+
 \section{Salvataggio dei dati raccolti}
+
+In questa sezione andiamo ad analizzare brevemente come tutti i dati raccolti dall'interfaccia vengono salvati, per essere poi pronti per la fase di analisi.
+
+\subsection{Salvataggio dei dati demografici e delle risposte}
+
+I dati misti catturati dall'interfaccia, quali i dati demografici del partecipante (età, genere, nazionalità, livello di istruzione), le risposte ai questionari, e tutti i timestamp registrati, sono salvati in un formato \verb|.csv|. Il file \verb|.csv| presenta una sola riga, con campi:
+\begin{itemize}
+    \item ID del partecipante
+    \item Dati demografici (età, genere, nazionalità, livello di istruzione)
+    \item Timestamp di inizio, fine sessione
+    \item Timestamp di inizio, fine video, natura e genere dei video mostrati
+    \item Per ogni domanda la risposta selezionata e la domanda associata + timestamp
+    \item Risposte ai questionari PANAS, con punteggio ottenuto + timestamp
+    \item Risposte alle domande a risposta multipla, salvando la domanda chiesta, la risposta segnata, e se questa era corretta o meno + timestamp
+\end{itemize}
+
+\subsection{Salvataggio delle registrazioni video}
+
+Le registrazioni sono salvate in formato \verb|.mp4| compresso, per ridurre lo spazio richiesto per memorizzare i dati salvati. Per l'estrazione delle espressioni facciali non è necessario l'utilizzo del segnale RAW della webcam.
+
+\subsection{Salvataggio dei dati di eye-tracking}
+
+Il sistema di eye-tracking è collegato direttamente al computer che dirige l'esperimento, tramite cavo Ethernet. Research SR, il fornitore dell'eye-tracker, fornisce una libreria di API in Python per il controllo via codice dell'eye-tracker, per cui questo è controllato direttamente dall'interfaccia. A fine esperimento, l'interfaccia si occupa di interrompere l'acquisizione dei dati di eye-tracking e scaricare i dati registrati. I dati sono scaricati in un formato proprietario (\verb|.edf|, Eyelink Data Format), ma Research SR fornisce un programma da linea di comando per convertire tale formato in formato di testo (\verb|.txt|). L'interfaccia si occupa quindi di scaricare i dati e convertirli in formato \verb|.txt|. Il file \verb|.txt| prodotto presenta una riga per campione, con posizione $x,y$ dello sguardo sullo schermo, e diametro della pupilla, in numero di pixel. Nel Capitolo !!AGGIUNGI REF!! verrà approfondito come questi dati sono utilizzati e come il diametro della pupilla è convertito da numero di pixel in $cm$.
+
+\subsection{Salvataggio dei dati fisiologici}
+
+Il salvataggio dei dati fisiologici richiede maggiore attenzione. Come anticipato, il braccialetto Empatica non è collegato direttamente all'interfaccia, ma è bensì controllato tramite applicazione via smartphone. In realtà, è leggermente più complesso.
+
+Empatica mette a disposizione per tutti i suoi clienti un portale online (\url{https://auth.carelab.empatica.com/}). Dal portale è necessario creare un "Partecipante": un partecipante è una coppia univoca di credenziali (username e password).Una volta scaricata l'applicazione CareLab su smartphone (disponibile sia su Android che iOS), si utilizzano queste credenziali appena generate per effettuare il login sull'app. Questa operazione di login è ciò che permette al telefono di collegarsi all'orologio, e così l'orologio inizia immediatamente a registrare tutti i dati fisiologici, e a sincronizzarli sul telefono. La registrazione dei dati è quindi asincrona: l'orologio non è collegato all'interfaccia\footnote{Per questo motivo, è importante che la cattura dei dati fisiologici sia avviata e terminata manualmente rispettivamente prima e dopo che l'esperimento sia iniziato, così da permettere di sincronizzarli con i dati dell'interfaccia.}. Una volta terminato l'esperimento, è presente sull'app un pulsante per terminare la cattura, il quale trasferisce i dati non ancora sincronizzati, li carica sul cloud online, e spegne l'orologio.
+
+I dati sono salvati su un server Amazon AWS dedicato ai propri prodotti di Empatica. Sul portale CareLab sono presenti le credenziali per accedere al server AWS e scaricare i dati. Questa soluzione è stata valutata come molto utile, in quanto, posto che l'orologio sia stato configurato correttamente, il salvataggio dei dati è automatico, e i dati sono scaricabili in qualsiasi momento, non dovendosene preoccupare durante la sperimentazione.
+
+Per scaricare i dati è stato sviluppato uno script in Python, che utilizzando l'ID del partecipante, l'ora dell'acquisizione e i dati di login al server AWS, scarica automaticamente i dati associati alla acquisizione e li sincronizza con la cattura, ritagliando i dati che ci servono. Questa operazione verrà approfondita nel Capitolo !!AGGIUNGI REF!! sull'elaborazione dei segnali. Lo script si occupa anche di selezionare i segnali che si vogliono scaricare. Il braccialetto Empatica è in grado di catturare un gran numero di segnali, ovvero:
+\begin{itemize}
+    \item Accelerometro ($x,y,z$)
+    \item Giroscopio ($x,y,z$)
+    \item Temperatura della pelle (°C)
+    \item ElectroDermal Activity ($\mu S$)
+    \item Passi
+    \item Blood Volume Pulse (BVP) ($nW$)
+    \item Systolic Peaks
+\end{itemize}
+Il braccialetto produce anche una serie di segnali aggregati, segnali come battito cardiaco o il ritmo respiratorio, ma questi segnali sono aggregati per minuto, ovvero vi è un campione ogni minuto. Questo rende l'utilizzo di questi dati aggregati inutile per la nostra ricerca, la quale richiede una precisione più fine. Tra questi dati vengono scaricati i dati di picchi sistolici (systolic peaks), per il battito cardiaco, e il livello di sudorazione della pelle (ElectroDermal Activity, o EDA). È inoltre scaricato anche il segnale di BVP (volume di pressione nel sangue), il quale è sempre associato al battito cardiaco, e potrebbe tornare utile in fase di analisi. Nel Capitolo !!AGGIUNGI REF!! verrà approfondita l'analisi di questi segnali, e come i systolic peaks vengono utilizzati per ricostruire il segnale di battito cardiaco in forma non aggregata.
 
 \clearpage
