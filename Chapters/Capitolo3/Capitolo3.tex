@@ -350,11 +350,17 @@ L'interfaccia tiene traccia di tutti i timestamp degli eventi principali, per pe
 
 \subsection{Registrazione della webcam/dello schermo}
 
-Durante tutta la durata dell'esperimento, l'interfaccia si occupa della registrazione della webcam selezionata per l'estrazione delle espressioni facciali, e della registrazione dello schermo. Le registrazioni sono eseguite su due processi paralleli al processo principale di generazione della GUI. Questo permette di non rallentare l'interfaccia grafica e permette una registrazione di entrambi i video più fluida, riducendo di molto il rischio di fotogrammi persi.
+Durante tutta la durata dell'esperimento, l'interfaccia si occupa della registrazione della webcam selezionata per l'estrazione delle espressioni facciali, e della registrazione dello schermo. La registrazione del volto è effettuata tramite una webcam esterna, posta sotto al monitor sul quale sono presentati gli stimoli. In fase di avvio dell'interfaccia è mostrata allo sperimentatore una schermata con le istruzioni necessarie per il posizionamento ottimale della webcam. La registrazione dello schermo è necessaria per l'utilizzo dei dati di eye-tracking, in quanto rappresenta gli stimoli presentati. Combinando i dati di eye-tracking e la registrazione dello schermo è possibile analizzare il movimento dello sguardo e le fissazioni, associando ad ogni sguardo e fissazione lo stimolo sullo schermo che lo ha stimolato.
 
-\subsubsection{Registrazione dello schermo}
+Le registrazioni sono eseguite su due processi paralleli al processo principale di generazione della GUI. Questo permette di non rallentare l'interfaccia grafica e permette una registrazione di entrambi i video più fluida, riducendo di molto il rischio di fotogrammi persi.
 
-La registrazione dello schermo è necessaria per l'utilizzo dei dati di eye-tracking, in quanto rappresenta gli stimoli presentati. Combinando i dati di eye-tracking e la registrazione dello schermo è possibile analizzare il movimento dello sguardo e le fissazioni, associando ad ogni sguardo e fissazione lo stimolo sullo schermo che lo ha stimolato.
+\subsection{Controllo dell'eye-tracker}
+
+L'interfaccia si occupa anche del controllo dell'eye-tracker, e quindi dell'acquisizione e del salvataggio dei dati di eye-tracking. Il sistema di eye-tracking è collegato direttamente al computer che dirige l'esperimento, tramite cavo Ethernet. Research SR, il fornitore dell'eye-tracker, fornisce una libreria di API in Python per il controllo via codice dell'eye-tracker, attraverso il quale è controllato dall'interfaccia.
+
+A inizio esperimento, l'interfaccia effettua il collegamento con l'eye-tracker e avvia la procedura di calibrazione. La calibrazione è svolta manualmente dallo sperimentatore, il quale guida il partecipante attraverso il processo, e, dovesse essere necessario, può rieseguire la calibrazione fino ad ottenere dei risultati abbastanza buoni per una buon tracciamento dello sguardo. Quando la calibrazione è conclusa, il controllo torna all'interfaccia, da dove il partecipante può far iniziare l'esperimento.
+
+Quando il partecipante preme il pulsante per iniziare l'esperimento, l'interfaccia avvia la cattura dei dati di eye-tracking, gestendo il salvataggio del timestamp di inizio cattura, per permettere poi la sincronizzazione dei dati di eye-tracking con tutti gli altri dati.
 
 \section{Salvataggio dei dati raccolti}
 
@@ -375,11 +381,11 @@ I dati misti catturati dall'interfaccia, quali i dati demografici del partecipan
 
 \subsection{Salvataggio delle registrazioni video}
 
-Per l'estrazione delle espressioni facciali non è necessario l'utilizzo del segnale RAW della webcam, per cui le registrazioni sono salvate in formato \verb|.mp4| compresso, per ridurre lo spazio richiesto per memorizzare i dati salvati.
+Per l'estrazione delle espressioni facciali (registrazione della webcam) e l'analisi degli stimoli visivi (registrazione dello schermo) non è necessario l'utilizzo del segnale RAW della webcam, per cui le registrazioni sono salvate in formato \verb|.mp4| compresso, per ridurre lo spazio richiesto per memorizzare i dati salvati.
 
 \subsection{Salvataggio dei dati di eye-tracking}
 
-Il sistema di eye-tracking è collegato direttamente al computer che dirige l'esperimento, tramite cavo Ethernet. Research SR, il fornitore dell'eye-tracker, fornisce una libreria di API in Python per il controllo via codice dell'eye-tracker, per cui questo è controllato direttamente dall'interfaccia. A fine esperimento, l'interfaccia si occupa di interrompere l'acquisizione dei dati di eye-tracking e scaricare i dati registrati. I dati sono scaricati in un formato proprietario (\verb|.edf|, Eyelink Data Format), ma Research SR fornisce un programma da linea di comando per convertire tale formato in formato di testo (\verb|.txt|). L'interfaccia si occupa quindi di scaricare i dati e convertirli in formato \verb|.txt|. Il file \verb|.txt| prodotto presenta una riga per campione, con posizione $x,y$ dello sguardo sullo schermo, e diametro della pupilla, in numero di pixel. Nel Capitolo !!AGGIUNGI REF!! verrà approfondito come questi dati sono utilizzati e come il diametro della pupilla è convertito da numero di pixel in $cm$.
+Come già detto, il sistema di eye-tracking è controllato internamente dall'interfaccia, utilizzando le API fornite da SR Research. A fine esperimento, l'interfaccia si occupa di interrompere l'acquisizione dei dati di eye-tracking e scaricare i dati registrati. I dati sono trasferiti via Ethernet, e sono scaricati in un formato proprietario (\verb|.edf|, Eyelink Data Format), ma Research SR fornisce un programma da linea di comando per convertire tale formato in formato di testo (\verb|.txt|). L'interfaccia si occupa quindi di scaricare i dati e convertirli in formato \verb|.txt|. Il file \verb|.txt| prodotto presenta una riga per campione, con posizione $x,y$ dello sguardo sullo schermo, e diametro della pupilla, in numero di pixel. Per l'analisi dei dati è stato sviluppato uno script per la conversione dei dati dal formato \verb|.txt| al formato \verb|.csv|. Nel Capitolo !!AGGIUNGI REF!! verrà approfondito come questi dati sono utilizzati e come il diametro della pupilla è convertito da numero di pixel in $cm$.
 
 \subsection{Salvataggio dei dati fisiologici}
 \label{sec:download_empatica_data}
