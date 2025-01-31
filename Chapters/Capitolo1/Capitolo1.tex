@@ -1,12 +1,308 @@
-\chapter{Generazione dei video fake}
+\chapter{Protocollo sperimentale}
 
-\section{Funzionamento}
+Per cominciare, è bene presentare il protocollo sperimentale che è stato definito, in quanto questo è il filo conduttore che lega tutto il progetto di ricerca di tesi. Il progetto è stato svolto in collaborazione con il dipartimento di Psicologia dell'Università Cattolica del Sacro Cuore, con il professore Andrea Gaggioli, il quale ha supervisionato e contribuito alla stesura del protocollo sperimentale e il processo di acquisizione dei dati, in particolar modo per la definizione dei vari questionari utilizzati. Inoltre, ha messo a disposizione la strumentazione di eye-tracking, la struttura e lo spazio utilizzati per lo svolgimento dell'esperimento di seguito descritto, e un team di tesisti che hanno collaborato alla stesura del protocollo e l'individuazione dei partecipanti.
 
-\section{Soluzioni attualmente disponibili}
+\section{Stesura del protocollo}
 
-\section{Video real}
-\subsection{Scelta dei video real}
-\subsection{Pre-Processing}
-\section{Generazione dei video fake}
+\subsection{Obiettivo}
+
+L'obiettivo di questo studio è confrontare l’esperienza di apprendimento per due contenuti didattici distinti, presentati in versioni con docenti reali o sintetici e in varianti maschili o femminili, per esplorare l’impatto delle variabili di presentazione e genere del docente, e del contenuto stesso, sulla qualità percepita dell’apprendimento e sulle risposte emotive e fisiologiche. Per fare questo, è stato ideato un esperimento, dove un campione di partecipanti volontari prende visione di alcuni contenuti didattici, e tramite la somministrazione di questionari di valutazione dell'esperienza visiva, la somministrazione di domande di comprensione, e la misura di diversi dati fisiologici misurati durante la visione, come il battito cardiaco, il movimento degli occhi e la sudorazione, viene misurata e valutata l'esperienza di visione dei video. A insaputa dei partecipanti, solo alcuni dei video mostrati sono reali, la restante parte è stata generata tramite IA. In questo capitolo affronteremo nel dettaglio come l'esperimento è stato disegnato e realizzato per ottenere i risultati migliori.
+
+\subsection{Disegno sperimentale}
+
+Per la somministrazione dei video reali e sintetici ai soggetti volontari sono stati valutati due tipi di disegni sperimentali. Supponiamo di aver individuato un campione, ad esempio di 30 partecipanti, disposti a partecipare al nostro esperimento, e di avere una raccolta di video didattici da dover mostrare, divisi fra reali e sintetici. Vogliamo garantire che i video reali e i video sintetici siano  visualizzati in modo equo tra tutti i partecipanti, ma come suddividere le acquisizioni? Si presentano subito due opzioni:
+
+\begin{enumerate}
+    \item Ogni partecipante visiona un solo video: i partecipanti vengono divisi in due gruppi, un gruppo visionerà i video reali e l'altro i video sintetici. Si tratta del disegno sperimentale \textit{between-subject}
+    \item Tutti i partecipanti visionano due video: ogni partecipante visiona sia un video reale che uno sintetico. Non vi è quindi una divisione in gruppi, si tratta del disegno sperimentale \textit{within-subject}. 
+\end{enumerate}
+
+\subsubsection{Between Subject}
+
+Nel disegno between subject i partecipanti vengono suddivisi in due gruppi, e ogni partecipante prende visione di un solo video. Un partecipante vedrà un video reale se appartiene al gruppo dei video reali, mentre un partecipante vedrà un video sintetico se appartiene al gruppo dei video sintetici. Questo disegno sperimentale comporta delle acquisizioni molto veloci, in quanto ogni partecipante deve visionare un solo video, ma comporta alcuni dettagli tecnici.
+
+\paragraph{Dimensione del campione} Questo disegno sperimentale richiede un campione di dimensioni doppie rispetto al \textit{within-subject}. Dividendo il campione in due gruppi, se si vuole garantire che ogni tipo di video venga visionato $n$ volte, è necessario trovare un campione grande $2n$.
+
+\paragraph{Generalizzabilità dei risultati} Inoltre, questo disegno sperimentale richiede un campione di maggiori dimensioni per poter garantire la generalizzabilità dei risultati. Con questo disegno sperimentale per ogni partecipante valutiamo solo come questo reagisce a un contenuto reale, se appartiene al gruppo dei video reali, o a un contenuto sintetico, se questo appartiene al gruppo dei video sintetici. Per poter generalizzare i risultati, per cui, è necessario un campione di grandi dimensioni, così da poter eliminare le differenze tra i singoli individui, e poter trarre delle conclusioni generali.
+
+Un vantaggio, però, di cui si deve tener conto di questo disegno sperimentale, è che visionando un solo video lo spettatore non può avere influenze da altri video durante la visione, producendo i dati più puliti ed accurati.
+
+\subsubsection{Within-Subject}
+
+
+Nel disegno within subject si elimina la suddivisione in gruppi, e a ogni partecipante sono mostrati due video, uno reale e uno sintentico. L'ordine di visione è bilanciato tra tutti i partecipanti, alternando quale viene visionato per primo, in modo da eliminare un possibile bias dovuto all'ordine di visione. L'ordine può anche essere stabilito in modo casuale, avendo un campione di grandi dimensioni che permette la distribuzione uniforme dei due casi. È possibile vedere al Paragrafo \ref{sec:variabili_indipendenti} un esempio di come questo ordine può essere stabilito in base al numero del partecipante. Secondo questo disegno le acquisizioni richiedono più tempo da parte dei partecipanti, ma così facendo, si dimezza la dimensione del campione richiesta, in quanto ogni partecipante vede entrambi i tipi di video, e inoltre riduce il problema della generalizzabilità. Mostrando ad ogni partecipante sia un video reale che un video sintetico, è possibile misurare come la stessa persona reagisce ai due contenuti di natura diversa. Questo è importante in quanto uno stesso video può avere effetti ben diversi su persone diverse (CITATION NEEDED). Questo permette di ottenere risultati generalizzabili prima. Al contrario del between-subject, però, visionando due video la percezione del secondo video potrebbe essere influenzata dal primo video.
+\subsubsection{La scelta}
+
+In luce di queste osservazioni, è stato scelto il design \textit{within-subject}. Ogni partecipante per cui visiona due video, di cui sempre uno reale e uno sintetico.
+
+\subsection{Variabili indipendenti}
+\label{sec:variabili_indipendenti}
+
+Stabilito il disegno sperimentale, sono state individuate le variabili dipendenti e indipendenti. Oltre alla natura del video (reale o sintetico), c'è da tenere conto anche del genere del docente, in quanto, per come già trovato da ... CITATION NEEDED .., il genere può avere un influenza sull'esperienza di visione dei video, a seconda dello spettatore, per cui dobbiamo tenerne conto, e assicurarci che nel corso dell'esperimento non vi sia una predominanza di un genere sull'altro nei video mostrati. Inoltre, dal momento che abbiamo bisogno di mostrare due video, e non possiamo certamente mostrare lo stesso video due volte (CITATION NEEDED), abbiamo bisogno di due contenuti diversi che i docenti andranno a trattare nei video. Riassumendo, le variabili indipendenti in gioco che determinano il tipo di video che un partecipante può andare a vedere sono:
+\begin{itemize}
+    \item Tipo di contenuto:
+    \begin{itemize}
+        \item Contenuto A
+        \item Contenuto B
+    \end{itemize} 
+    \item Tipo di Presentatore:
+    \begin{itemize}
+        \item Reale (docente videoregistrato)
+        \item Sintetico (personaggio generato da AI)
+    \end{itemize}
+    \item Genere del Presentatore:
+    \begin{itemize}
+        \item Maschile
+        \item Femminile
+    \end{itemize}
+\end{itemize}
+
+\begin{table}[t]
+    \begin{tabular}{|r| p{1.9cm} p{1.51cm} p{1.75cm} p{1.9cm} p{1.5cm} p{1.91cm}| }
+        \hline
+        Partecipante & Contenuto Video 1 & Tipo Video 1 & Genere Video 1 & Contenuto Video 2 & Tipo Video 2 & Genere Video 2 \\ \hline
+        1 & A & Sintetico & Maschile & B & Reale & Femminile \\
+        \hline
+        2 & A & Reale & Maschile & B & Sintetico & Femminile \\
+        \hline
+        3 & B & Sintetico & Maschile & A & Reale & Femminile \\
+        \hline
+        4 & B & Reale & Maschile & A & Sintetico & Femminile \\
+        \hline
+        5 & A & Sintetico & Femminile & B & Reale & Maschile \\
+        \hline
+        6 & A & Reale & Femminile & B & Sintetico & Maschile \\
+        \hline
+        7 & B & Sintetico & Femminile & A & Reale & Maschile \\
+        \hline
+        8 & B & Reale & Femminile & A & Sintetico & Maschile \\ \hline
+        9 & A & Sintetico & Maschile & B & Reale & Femminile \\
+        \hline
+        10 & A & Reale & Maschile & B & Sintetico & Femminile \\
+        \hline
+        11 & B & Sintetico & Maschile & A & Reale & Femminile \\
+        \hline
+        12 & B & Reale & Maschile & A & Sintetico & Femminile \\
+        \hline
+        13 & A & Sintetico & Femminile & B & Reale & Maschile \\
+        \hline
+        14 & A & Reale & Femminile & B & Sintetico & Maschile \\
+        \hline
+        15 & B & Sintetico & Femminile & A & Reale & Maschile \\
+        \hline
+        16 & B & Reale & Femminile & A & Sintetico & Maschile \\ \hline
+    \end{tabular}
+    \centering
+    \caption{Matrice sperimentale (ipotizzando un campione di 16 partecipanti)}
+    \label{tab:matrice_sperimentale}
+\end{table}
+
+Ogni possibile combinazione di assegnamenti di queste tre variabili rappresenta un possibile video che un partecipante può visionare. Ad esempio, un assegnamento del tipo: $$Contenuto1 = A \ \wedge \ Tipo1 = Reale \ \wedge \ Genere1 = Maschile$$ rappresenta un video reale con un docente di genere maschile che espone il contenuto A. Sulla base di queste variabili andiamo a costruire una matrice sperimentale, ovvero una matrice che specifica, per ogni partecipante, il valore di ognuna di queste variabili per il primo e il secondo video che i partecipanti andranno a visionare durante l'esperimento, specificando di conseguenza i due video che ogni partecipante andrà a visionare. Osserviamo che le tre variabili sono tutte e tre variabili binarie, ovvero possono assumere solo due valori. Questo ci permette di definire estremamente facilmente il vincolo che lega il primo e il secondo video: il secondo video sarà la negazione logica del primo, dove se $Contenuto1$, $Tipo1$, e $Genere1$ sono le variabili che specificano il contenuto, il tipo e il genere del primo video, per il secondo video le variabili associate assumeranno rispettivamente i valori $Contenuto2 = \overline{Contenuto1}$, $Tipo2 = \overline{Tipo1}$ e $Genere2 = \overline{Genere1}$. Per cui, ad esempio, sulla base dell'assegnamento indicato in precedenza, il secondo video sarebbe definito dai valori: $$Contenuto2 = B \ \wedge \ Tipo2 = Sintetico \ \wedge \ Genere2 = Femminile.$$ 
+
+Per costruire la matrice è sufficiente esplicitare tutte le possibili combinazioni di assegnamenti di queste tre variabili per il primo video, e per ogni combinazione ricavare i rispettivi valori per il secondo video, utilizzando il vincolo appena definito. Esplicitando tutte le possibili combinazioni garantiamo che, con un campione abbastanza grande, tutti i casi possibili sono coperti e non vi sono combinazioni predominanti che potrebbero sbilanciare i dati raccolti. Osserviamo che le variabili sono tre, per cui il numero di possibili combinazioni è di $2^3 = 8$, per cui dopo 8 partecipanti la matrice si ripeterà, si tratta quindi di una matrice periodica. È possibile vedere un esempio di questa matrice in Tabella \ref{tab:matrice_sperimentale}, dato un campione di 16 partecipanti. È possibile notare la periodicità della tabella, dove i valori delle variabili per i  partecipanti da 1 a 8 sono ripetuti per i partecipanti da 9 a 16. Si osservi che non è importante la combinazione di partenza, posto che il campione sia abbastanza grande da coprire tutte le possibili combinazioni. Per stabilire la dimensione del campione, infine, è sufficiente stabilire quante volte si desidera coprire tutte le combinazioni, e scegliere una dimensione appropriata. Ad esempio, se si vuole coprire tutti i casi possibili almeno cinque volte, servirà un campione di almeno $5 \cdot 8 = 32$ partecipanti.
+
+\subsection{Variabili dipendenti}
+
+In un esperimento, una variabile dipendente è una variabile che viene osservata e misurata, per studiare l'effetto che variazioni alle variabili indipendenti hanno su tale variabile. Nel nostro caso, si tratta di ciò che ci aspettiamo possa essere influenzato in uno spettatore dalla natura sintetica di un video. Le variabili dipendenti identificate sono:
+
+\begin{itemize}
+    \item Esperienza emotiva durante la lezione (misurata con questionari psicometrici post-sessione)
+    \item Qualità dell’apprendimento (misurata con test di comprensione post-sessione)
+    \item Fissazioni e movimento dello sguardo (misurati con eye-tracker)
+    \item Frequenza cardiaca e livello di sudorazione (misurati tramite sensore sul polso)
+    \item Espressioni emotive facciali (monitorate tramite registrazione della webcam).
+\end{itemize}
+
+Le ragioni a supporto delle prime due variabili dipendenti sono che: vogliamo misurare come l'utilizzo di video sintetici piuttosto che reali possa alterare l'esperienza emotiva e la qualità dell'apprendimento in uno studente. Questi sono due aspetti fondamentali da studiare, se la comprensione o il coinvolgimento emotivo vengono meno utilizzando video artificiali questo vanifica il senso di utilizzarli. Per poter misurare queste due variabili sono stati definiti dei questionari di autovalutazione emotiva, di valutazione e di apprendimento, da somministrare durante l'esperimento.
+
+\subsection{Definizione dei questionari}
+
+I questionari sono stati definiti dal professore Andrea Gaggioli del dipartimento di Psicologia dell'Università Cattolica del Sacro Cuore. Alcuni dei questionari sono stati definiti per questo studio, altri sono questionari noti all'interno del mondo della Psicologia come il Positive And Negative Affect Schedule (PANAS) \cite{crawford2004panas}, per la autovalutazione del proprio stato emotivo, e il Video Engagement Scale (VES) \cite{visser2016ves}, per la valutazione del livello di coinvolgimento durante la visione di un video.
+
+\subsubsection{Questionari pre-trattamento}
+
+Sono stati specificati dei questionari pre-trattamento, da somministrare ai partecipanti all'inizio dell'esperimento, prima della visione di qualsiasi video. Qui vengono raccolti semplici dati demografici come l'età, il genere, la nazionalità e il livello di istruzione di ogni partecipante. In seguito, è somministrato un questionario di autovalutazione del loro stato emotivo pre-trattamento, seguito da una domanda (in una scala da 1 a 5) su quanto frequentemente il partecipante fa utilizzo di contenuti multimediali per l'apprendimento. Più nello specifico, i questionari pre-trattamento consistono in, in questo ordine:
+
+\begin{itemize}
+    \item  Dati demografici (età, genere, nazionalità, livello di istruzione, occupazione)\
+    \item Questionario per valutare lo stato emotivo iniziale (Positive and Negative Affect Schedule - PANAS), che misura l’umore momentaneo
+    \item Scala sulla frequenza di utilizzo di contenuti video per l'apprendimento (ad es., lezioni online, tutorial, corsi su piattaforme digitali)
+    \item Scala per misurare l'uso della tecnologia in generale a scopi educativi (16 item)
+\end{itemize}
+
+Il questionario su scala per misurare l'uso della tecnologia consiste in:
+
+\begin{enumerate}
+    \item \textbf{Frequenza di utilizzo della tecnologia:}
+    \begin{itemize}
+        \item \textit{Quanto spesso utilizzi tecnologie digitali (ad esempio, app, piattaforme, dispositivi) per scopi educativi?}\\
+        (Mai, Raramente, A volte, Spesso, Molto frequentemente)
+        \item \textit{Quanto spesso combini più tecnologie (ad esempio, video, quiz online, forum) nel tuo processo di apprendimento?}\\
+        (Mai, Raramente, A volte, Spesso, Molto frequentemente)
+    \end{itemize}
+    
+    \item \textbf{Tipi di tecnologie utilizzate:}
+    \begin{itemize}
+        \item \textit{Utilizzo piattaforme di gestione dell'apprendimento (ad esempio, Moodle, Blackboard, Google Classroom).}\\
+        (Mai, Raramente, A volte, Spesso, Molto frequentemente)
+        \item \textit{Utilizzo strumenti collaborativi (ad esempio, Microsoft Teams, Zoom, Google Docs) per scopi educativi.}\\
+        (Mai, Raramente, A volte, Spesso, Molto frequentemente)
+        \item \textit{Utilizzo app o piattaforme educative specializzate (ad esempio, Coursera, Khan Academy, Duolingo).}\\
+        (Mai, Raramente, A volte, Spesso, Molto frequentemente)
+    \end{itemize}
+    
+    \item \textbf{Scopi di utilizzo della tecnologia:}
+    \begin{itemize}
+        \item \textit{Utilizzo le tecnologie per accedere a materiali didattici (ad esempio, eBook, video, articoli).}\\
+        (Mai, Raramente, A volte, Spesso, Molto frequentemente)
+        \item \textit{Utilizzo le tecnologie per collaborare con i miei pari o con gli insegnanti/datori di lavoro.}\\
+        (Mai, Raramente, A volte, Spesso, Molto frequentemente)
+    \end{itemize}
+    
+    \item \textbf{Impatto percepito sull'apprendimento:}
+    \begin{itemize}
+        \item \textit{Usare la tecnologia migliora la mia comprensione del materiale.\\}
+        (Fortemente in disaccordo, In disaccordo, Né accordo né disaccordo, Accordo, Fortemente d'accordo)
+        \item \textit{La tecnologia mi aiuta a rimanere organizzato e a gestire meglio il mio apprendimento.}\\
+        (Fortemente in disaccordo, In disaccordo, Né accordo né disaccordo, Accordo, Fortemente d'accordo)
+        \item \textit{Apprendo meglio utilizzando le tecnologie rispetto ai metodi tradizionali.}\\
+        (Fortemente in disaccordo, In disaccordo, Né accordo né disaccordo, Accordo, Fortemente d'accordo)
+    \end{itemize}
+    
+    \item \textbf{Adattabilità e competenza:}
+    \begin{itemize}
+        \item \textit{Mi adatto rapidamente alle nuove tecnologie introdotte a scopi educativi.}\\
+        (Fortemente in disaccordo, In disaccordo, Né accordo né disaccordo, Accordo, Fortemente d'accordo)
+    \end{itemize}
+    
+    \item \textbf{Sfide e ostacoli:}
+    \begin{itemize}
+        \item \textit{A volte affronto difficoltà tecniche che ostacolano la mia esperienza di apprendimento.}\\
+        (Fortemente in disaccordo, In disaccordo, Né accordo né disaccordo, Accordo, Fortemente d'accordo)
+        \item \textit{L'accesso limitato a dispositivi o alla connessione internet influenza la mia capacità di usare la tecnologia per apprendere.}\\
+        (Fortemente in disaccordo, In disaccordo, Né accordo né disaccordo, Accordo, Fortemente d'accordo)
+    \end{itemize}
+    
+    \item \textbf{Coinvolgimento e motivazione:}
+    \begin{itemize}
+        \item \textit{La tecnologia rende l'apprendimento più coinvolgente per me.}
+        (Fortemente in disaccordo, In disaccordo, Né accordo né disaccordo, Accordo, Fortemente d'accordo)\\
+        \item \textit{Mi sento motivato a esplorare nuovi argomenti o competenze quando utilizzo la tecnologia.}\\
+        (Fortemente in disaccordo, In disaccordo, Né accordo né disaccordo, Accordo, Fortemente d'accordo)
+    \end{itemize}
+    
+    \item \textbf{Integrazione nelle pratiche di apprendimento:}
+    \begin{itemize}
+        \item \textit{I miei insegnanti/datori di lavoro incoraggiano l'uso della tecnologia nel processo di apprendimento.}\\
+        (Fortemente in disaccordo, In disaccordo, Né accordo né disaccordo, Accordo, Fortemente d'accordo)
+        \item \textit{Integro regolarmente la tecnologia nella mia routine di studio.}\\
+        (Fortemente in disaccordo, In disaccordo, Né accordo né disaccordo, Accordo, Fortemente d'accordo)
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Questionari post-video}
+
+Al termine della visione di ciascun video, viene poi somministrato un insieme di questionari. I questionari post-video consistono in un'autovalutazione del proprio stato emotivo in seguito alla visione, delle domande (in una scala da 1 a 5) sulla percezione della qualità dell'apprendimento e sulla valutazione del presentatore, un questionario sul livello di coinvolgimento durante la visione (Video Engagement Scale, o VES), e due domande sul livello di familiarità pregressa con l'argomento presentato e l'utilità percepita delle informazioni ricevute. Infine, è prevista una breve sessione di domande di comprensione a risposta multipla sui contenuti trattati nel video appena visionato, per misurare il grado di comprensione raggiunto. In un elenco puntato, i questionari post-video vengono presentati in questo ordine:
+
+\begin{itemize}
+    \item Esperienza emotiva: Positive and Negative Affect Schedule (PANAS), per misurare i sentimenti positivi e negativi provati durante la videolezione
+    \item Percezione della qualità dell’apprendimento:
+        \begin{enumerate}
+            \item \textit{"Quanto hai trovato chiari i contenuti della lezione?"}(scala da 1 a 5)
+            \item \textit{"Quanto sono stati facili da comprendere i concetti presentati nella lezione?"} (scala da 1 a 5)
+            \item \textit{"Quanto hai trovato ben organizzata la presentazione dei contenuti?"} (scala da 1 a 5)
+            \item \textit{"Quanto pensi di aver appreso dai contenuti presentati?"} (scala da 1 a 5)
+            \item \textit{"Quanto ti senti sicuro/a di ricordare le informazioni apprese nella lezione?"} (scala da 1 a 5)
+            \item \textit{"Quanto ti senti preparato/a ad applicare i concetti appresi?"} (scala da 1 a 5)
+            \item \textit{"Quanto ritieni utile la lezione per il tuo apprendimento?"} (scala da 1 a 5)
+            \item \textit{"Quanto la lezione ha stimolato il tuo interesse per l’argomento?"} (scala da 1 a 5)
+            \item \textit{"Quanto ti senti motivato/a a saperne di più sull’argomento dopo aver visto la lezione?"} (scala da 1 a 5)
+        \end{enumerate}
+    \item Valutazione del presentatore
+        \begin{enumerate}
+            \item \textit{"Come descriveresti il modo di presentare del relatore?"} (scala da 1 a 5, dove 1 è "Molto impersonale" e 5 è "Molto coinvolgente")
+            \item \textit{"Quanto hai trovato efficace il relatore nella trasmissione dei contenuti?"} (scala da 1 a 5)
+            \item \textit{"Quanto ti è sembrato chiaro e sicuro il relatore durante la spiegazione?"} (scala da 1 a 5)
+            \item \textit{"Quanto ti sei sentito/a in sintonia con il relatore?"} (scala da 1 a 5)
+            \item \textit{"Quanto il presentatore ti è sembrato naturale e realistico nella presentazione dei contenuti?"} (scala da 1 a 5)
+        \end{enumerate}
+    \item Video Engagement Scale (VES)
+    \item Domande di familiarità e utilità
+        \begin{enumerate}
+            \item \textit{"Quanto eri già familiare o a conoscenza dei contenuti mostrati nel video?"} (scala da 1 a 5)
+            \item \textit{"Quanto ti è sembrato utile e/o informativo questo contenuto?"} \\ (scala da 1 a 5)
+        \end{enumerate}
+    \item Test di comprensione per valutare l’apprendimento oggettivo
+\end{itemize}
+
+I testi di comprensione per valutare l'apprendimento oggettivo consistono in un quiz da 5 domande a crocette, con 1 risposta giusta e 3 risposte sbagliate, sui contenuti trattati.
+
+\subsection{Dati fisiologici, sguardo, espressioni facciali}
+
+Le altre tre variabili dipendenti sono meno ovvie, e richiedono una breve sezione sul perché è stato valutato importante misurarle, e in seguito come sono state misurate.
+
+\subsubsection{Dati fisiologici}
+
+Il nostro corpo è in uno stato di costante reazione agli stimoli proposti. Oltre a quello che percepiamo, valori come il battito cardiaco, il ritmo respiratorio, il livello di sudorazione della pelle sono fortemente influenzati dalle nostre emozioni e dagli stimoli visivi (e in particolar modo anche sonori \cite{pitchforth2010auditorystimuli}) che ci sono presentati \cite{gunaratne2019visualstimuli}. A partire da questi è quindi possibile studiare le risposte emotive associate agli stimoli presentati, nel nostro caso i video reali o sintetici. Tra questi, il livello di sudorazione della pelle, detto anche Electrodermal Activity (EDA), è particolarmente utile, in quanto questo è fortemente collegato ai livelli di stress, tensione e reazione emotiva, specie durante l'apprendimento \cite{di2018electrodermal}\cite{tinga2020neurophysiology}, e tende a essere fortemente reattivo.
+
+Per la cattura dei dati fisiologici è stato predisposto un braccialetto Embrace Plus di Empatica Inc., indossato sul polso della mano non dominante di ogni partecipante. Il braccialetto permette di misurare non intrusivamente i segnali che ci interessano, quali battito cardiaco e livello di sudorazione della pelle. Per assicurarsi una lettura accurata dei dati richiesti, ai partecipanti viene richiesto di indossare il braccialetto per 10-15 minuti prima dell'inizio dell'esperimento, affinché la pelle del partecipante possa abituarsi al contatto con il sensore, come indicato dai manuali d'uso di Empatica. Il braccialetto è configurato e abilitato via applicazione via smartphone, e i dati sono salvati su un server Amazon AWS, da cui è possibile scaricare offline in qualsiasi momento tutti i dati raccolti. La gestione, acquisizione e salvataggio dei dati fisiologici è approfondito più nel dettaglio nella sezione \ref{sec:empatica}.
+
+\subsubsection{Eye-tracker}
+
+I motivi per cui è di nostro interesse misurare e tracciare il movimento dello sguardo sono molteplici: innanzitutto, vista la presenza di video realizzati tramite IA, questo ci permette di  identificare eventuali elementi di distrazione che potrebbero essere presenti in tali video, dovuti a possibili artefatti o imperfezioni nei video generati. Vista la natura ancora in via di sviluppo di questa tecnologia, un dettaglio sul viso del presentatore, il movimento o l'aspetto delle mani, per fare qualche esempio, potrebbero essere elementi di distrazione\footnote{Si osservi che non è necessariamente detto che queste distrazioni comportino un ostacolo nell'apprendimento, potrebbe evincersi dai risultati di questo studio che nonostante le fissazioni, dovessero essercene, i partecipanti non abbiano avuto problemi di comprensione. Questo arricchisce ancora di più l'importanza e l'utilità di questa variabile in questo studio}. Inoltre, la misura delle fissazioni e del movimento dello sguardo possono essere ulteriori indicazioni del grado di coinvolgimento emotivo e del grado di attenzione dei partecipanti verso il video proposto \cite{kar2020eyegazemooc}\cite{liu2019eyegazeemotion}. 
+
+Per il tracciamento dello sguardo e la misura delle fissazioni è utilizzato l'eye-tracker EyeLink 1000, di SR Research Ltd. Questo eye-tracker permette di ottenere, con un sample rate di fino a 1000 campioni al secondo, la posizione dello sguardo sullo schermo ad ogni istante e il diametro della pupilla. Per l'utilizzo dell'eye-tracker è prevista una fase di calibrazione, svolta manualmente dallo sperimentatore insieme al partecipante prima di avviare l'esperimento. In seguito, l'eye-tracker è pilotato dal computer che guida il partecipante attraverso l'esperimento, per cui il tracciamento e il salvataggio dei dati raccolti è automatico. Per l'utilizzo dei dati di movimento dello sguardo,sarà necessario, inoltre, registrare lo schermo del computer dove sono presentati gli stimoli, così da poter associare un certo movimento dello sguardo, ad esempio, allo stimolo che lo ha causato.
+
+\subsubsection{Espressioni facciali}
+
+Come trovato da \cite{whitehill2014faces}\cite{zhang2020face}, le espressioni facciali, e le relative emozioni, sono un buon indicatore del livello di interesse e coinvolgimento di uno studente durante l'apprendimento.
+
+Per catturare le espressioni facciali, il partecipante viene registrato per tutta la durata dell'esperimento, previo consenso esplicito, tramite webcam, posta sullo schermo sul quale vengono visualizzati i video. In seguito, le espressioni facciali e le emozioni associate sono estratte dal video registrato utilizzando la libreria di python PyFeat.
+
+\subsection{Riepilogo}
+
+Per riepilogare, il disegno è di tipo \textit{within-subjects}. Ciascun partecipante visiona due video didattici:
+
+\begin{itemize}
+    \item Uno recitato da un docente maschio e uno da una docente femmina.
+    \item  Uno in versione reale (docente videoregistrato) e uno in versione sintetica (generato dall'AI).
+\end{itemize}
+Le variabili indipendenti sono:
+
+\begin{itemize}
+    \item Tipo di contenuto:
+    \begin{itemize}
+        \item Contenuto A
+        \item Contenuto B
+    \end{itemize} 
+    \item Tipo di Presentatore:
+    \begin{itemize}
+        \item Reale (docente videoregistrato)
+        \item Sintetico (personaggio generato da AI)
+    \end{itemize}
+    \item Genere del Presentatore:
+    \begin{itemize}
+        \item Maschile
+        \item Femminile
+    \end{itemize}
+\end{itemize}
+Mentre le variabili dipendenti sono:
+
+\begin{itemize}
+    \item Esperienza emotiva durante la lezione (misurata con questionari psicometrici post-sessione).
+    \item Qualità dell’apprendimento (misurata con test di comprensione post-sessione).
+    \item Eye tracking (misure di fissazione e sguardo).
+    \item Frequenza cardiaca e sudorazione (misurate con braccialetto munito di sensore).
+    \item Espressioni emotive facciali (analizzate tramite registrazione della webcam ed estratte con la libreria Python PyFeat).
+\end{itemize}
+
+Prima di cominciare, i partecipanti vengono accolti, e viene richiesta la firma del consenso informato sulla cattura di tutti dati sopra indicati. I partecipanti non sono informati della natura reale o sintetica dei personaggi nei video, per evitare bias sui dati raccolti. Prima di avviare l'esperimento, è previdta la preparazione delle misure fisiologiche:
+\begin{itemize}
+    \item Battito cardiaco e sudorazione: Applicazione del braccialetto.
+    \item Eye tracking: Calibrazione delle misure oculari.
+    \item Espressioni facciali: Posizionamento della webcam per il monitoraggio delle espressioni facciali.
+\end{itemize}
+
+Ogni partecipante visiona due video con contenuti diversi. Ciascun contenuto è presentato in una combinazione unica di caratteristiche: un contenuto sarà presentato da un docente maschile e l’altro da una docente femminile, uno sarà in versione reale e l’altro in versione sintetica. Il controbilanciamento copre anche l'ordine tra contenuto, genere e tipo di presentatore. Al termine, i partecipanti sono informati sui veri scopi dell’esperimento e sull’utilizzo dei dati raccolti.
 
 \clearpage
