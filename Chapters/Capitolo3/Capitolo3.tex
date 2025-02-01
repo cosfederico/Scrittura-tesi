@@ -12,7 +12,7 @@ L'interfaccia è stata disegnata per essere controllata autonomamente dal partec
 
 \subsection{Selezione dei video}
 
-L'interfaccia gestisce autonomamente la selezione dei video da mostrare al partecipante corrente. Utilizzando lo storico delle acquisizioni eseguite sino a quel momento, l'interfaccia tiene conto del numero del partecipante attuale, e programmaticamente calcola i due video da somministrare a partire da tale numero, costruendo dinamicamente la matrice sperimentale presentata nella Sezione \ref{sec:variabili_indipendenti}, di cui è visibile un esempio in Tabella \ref{tab:matrice_sperimentale}.
+L'interfaccia gestisce autonomamente la selezione dei video da mostrare al partecipante corrente. Utilizzando lo storico delle acquisizioni eseguite sino a quel momento, l'interfaccia tiene conto del numero del partecipante attuale, e programmaticamente stabilisce i due video da somministrare a partire da tale numero, costruendo dinamicamente la matrice sperimentale presentata nella Sezione \ref{sec:variabili_indipendenti}, di cui è visibile un esempio in Tabella \ref{tab:matrice_sperimentale}.
 
 Come già presentato in tale sezione, possiamo identificare univocamente un video tramite la valorizzazione di tra variabili binarie, quali $Contenuto$, $Tipo$ e $Genere$, le quali rappresentano rispettivamente:
 \begin{itemize}
@@ -49,7 +49,7 @@ $$
 
 Una valorizzazione di queste tre variabili rappresenta un possibile video da somministrare al nostro partecipante. La matrice è costruita tale per cui il valore delle variabili associate al secondo video è calcolato mediante la negazione logica dei valori delle variabili associate al primo video, questo per garantire il controbilanciamento. Per questo motivo, il calcolo è eseguito per determinare il primo video da essere visionato. I risultati ottenuti per il primo video sono poi negati per ottenere le proprietà del secondo video da mostrare.
 
-Il calcolo è basato su tre operazioni binarie. Trattando il numero del partecipante come un numero binario, sono estratti, in ordine, i tre bit meno significativi. Ad esempio, per un partecipante di numero 6, questo codificato in binario risulta:
+Il calcolo è basato su tre operazioni binarie: trattando il numero del partecipante come un numero binario, sono estratti, in ordine, i tre bit meno significativi per stabilire i valori delle tre variabili binarie. Ad esempio, per il partecipante numero 6, questo codificato in binario risulta:
 
 \begin{align}
     \begin{split}
@@ -75,7 +75,7 @@ Nel caso del partecipante numero 14, sono ignorati i bit in eccesso:
     \end{split}
 \end{align}
 
-Come si può evincere, in questo caso particolare i partecipanti 6 e 14 visioneranno gli stessi video, nello stesso ordine, rimarcando la natura periodica della matrice sperimentale.
+Come si può evincere, questo permette di stabilire immediatamente quali sono i video da somministrare, senza il bisogno di memorizzare esplicitamente la matrice sperimentale. Inoltre, l'esempio mostrato ci permette di fare un'altra osservazione interessante: i bit estratti per i partecipanti 6 e 14 sono gli stessi, per cui visioneranno gli stessi video, nello stesso ordine, rimarcando la natura periodica della matrice sperimentale.
 
 Il calcolo esplicitato, per un generico partecipante di numero $ID_{partecipante}$, può essere scritto come:
 
@@ -177,7 +177,7 @@ Per l'estrazione delle espressioni facciali (registrazione della webcam) e l'ana
 
 \subsection{Eye-tracking}
 
-Come già detto, il sistema di eye-tracking è controllato internamente dall'interfaccia, utilizzando le API fornite da SR Research. A fine esperimento, l'interfaccia si occupa di interrompere l'acquisizione dei dati di eye-tracking e scaricare i dati registrati. I dati sono trasferiti via Ethernet, e sono scaricati in un formato proprietario (\verb|.edf|, Eyelink Data Format), ma Research SR fornisce un programma da linea di comando per convertire tale formato in formato di testo (\verb|.txt|). L'interfaccia si occupa quindi di scaricare i dati e convertirli in formato \verb|.txt|. Il file \verb|.txt| prodotto presenta una riga per campione, con posizione $x,y$ dello sguardo sullo schermo, e diametro della pupilla, in numero di pixel. Per l'analisi dei dati è stato sviluppato uno script per la conversione dei dati dal formato \verb|.txt| al formato \verb|.csv|. Nel Capitolo \ref{cap:data_analysis} verrà approfondito come questi dati sono utilizzati e come il diametro della pupilla è convertito da numero di pixel in $cm$.
+Come già detto, il sistema di eye-tracking è controllato internamente dall'interfaccia, utilizzando le API fornite da SR Research. A fine esperimento, l'interfaccia si occupa di interrompere l'acquisizione dei dati di eye-tracking e scaricare i dati registrati. I dati sono trasferiti via Ethernet, e sono scaricati in un formato proprietario (\verb|.edf|, Eyelink Data Format), ma Research SR fornisce un programma da linea di comando per convertire tale formato in formato di testo (\verb|.txt|). L'interfaccia si occupa quindi di scaricare i dati e convertirli in formato \verb|.txt|. Il file \verb|.txt| prodotto presenta una riga per campione, con posizione $x,y$ dello sguardo sullo schermo, e diametro della pupilla, in numero di pixel. Per l'analisi dei dati è stato sviluppato uno script per la conversione dei dati dal formato \verb|.txt| al formato \verb|.csv|. Nel Capitolo !!AGGIUNGI REF!! verrà approfondito come questi dati sono utilizzati e come il diametro della pupilla è convertito da numero di pixel in $cm$.
 
 \section{Dati fisiologici}
 \label{sec:empatica}
@@ -207,7 +207,7 @@ Una volta terminato l'esperimento, è presente sull'app un pulsante per interrom
 \subsection{Download dei dati}
 \label{sec:download_empatica_data}
 
-Per il download dei dati dal cloud è stato sviluppato uno script in Python, che utilizzando l'ID del partecipante, l'ora dell'acquisizione e i dati di login al server AWS, scarica automaticamente i dati associati alla acquisizione e li sincronizza con la cattura, ritagliando i dati che ci servono. Questa operazione verrà approfondita nel Capitolo \ref{cap:data_analysis} sull'elaborazione dei segnali. Lo script si occupa anche di selezionare i segnali che si vogliono scaricare. Il braccialetto Empatica in realtà è in grado di catturare un gran numero di segnali, e in condizioni normali li cattura tutti. Questi segnali sono:
+Per il download dei dati dal cloud è stato sviluppato uno script in Python, che utilizzando l'ID del partecipante, l'ora dell'acquisizione e i dati di login al server AWS, scarica automaticamente i dati associati alla acquisizione e li sincronizza con la cattura, ritagliando i dati che ci servono. Questa operazione verrà approfondita nel Capitolo !!AGGIUNGI REF!! sull'elaborazione dei segnali. Lo script si occupa anche di selezionare i segnali che si vogliono scaricare. Il braccialetto Empatica in realtà è in grado di catturare un gran numero di segnali, e in condizioni normali li cattura tutti. Questi segnali sono:
 \begin{itemize}
     \item Accelerometro ($x,y,z$)
     \item Giroscopio ($x,y,z$)
